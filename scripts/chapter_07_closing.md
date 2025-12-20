@@ -1,41 +1,39 @@
 # Chapter 7: Closing
 
 **Duration:** ~1.5 minutes
-**Tone:** Warm, grateful, benediction-like
+**Style:** Warm documentary narrator
 
 ---
 
 ## Script
 
-*[warmly]*
+[warmly]
 
-Well, I've talked your ear off, haven't I? Thank you for listening.
+Well, I've kept you on the line for a while now. Thank you for listening.
 
-*[with meaning]*
+Mary Lund Davis passed away in 2008, but her work lives on — in the buildings she designed, in the families who still live in her Fantastic Homes, and right here, in this house where you're standing.
 
-You know, I asked my family never to sell this house. I considered it my finest building — the truest expression of everything I believed about architecture. About what a home should be.
+[slight pause]
 
-*[slight pause]*
+She asked her family never to sell Del Monte. She considered it her finest building — the truest expression of everything she believed about architecture, about what a home should be.
 
-They did sell it, eventually. Things happen. Families change. But here you are, standing in these rooms I designed, looking at these windows I placed for the morning light and the evening light. The bones of this house are still my bones. And something of me is still here.
+[gently]
 
-*[gently instructive]*
+Things change, of course. Families grow. But here you are, standing in the rooms she designed, looking through the windows she placed for the morning light and the evening light. Something of Mary is still here in these bones, in this light, in the care she put into every detail.
 
-Before you hang up, let me leave you with this: Look around. Really look. Notice how the light falls. Notice where your eye travels. Step out onto that deck and feel how the inside and outside become one thing.
+[inviting]
 
-*[with conviction]*
+Before you hang up, take a moment. Look around — really look. Notice how the light falls. Notice where your eye travels. Step out onto that deck if you can, and feel how the inside and outside become one thing.
 
-Good design isn't about expense. It's about attention. It's about caring enough to think through every detail. Six thousand dollars, eight weeks, and sixty years later, it still works. That's what I'm proudest of.
+[with conviction]
 
-*[final warmth]*
+Good design isn't about expense. It's about attention. It's about caring enough to think through every detail. Mary built this house for sixty-three hundred dollars in eight weeks — and more than seventy years later, it still works. That's her legacy.
 
-Enjoy your stay in my house. Open the windows. Let the air in. Watch the light change through the day.
+[warm closing]
 
-And if you pick up this phone again, I'll be here. I've always been here.
+Thank you for visiting Del Monte. Enjoy your stay. Open the windows. Let the air in. Watch the light change through the day.
 
-*[softly]*
-
-Thank you for visiting Del Monte.
+And if you pick up this phone again, I'll be happy to tell you more.
 
 Goodbye for now.
 
@@ -43,9 +41,8 @@ Goodbye for now.
 
 ## Notes for Voice Generation
 
-- This is the emotional conclusion - measured pace throughout
-- "They did sell it" should be accepting, not bitter
-- "Something of me is still here" - meaningful but not spooky
-- The practical advice (look around, notice the light) keeps it grounded
-- Final "Goodbye for now" should feel like a genuine farewell from a friend
-- Overall tone: a gracious host saying goodbye
+- This is the emotional conclusion - measured, warm pace
+- "Something of Mary is still here" - respectful, not spooky
+- The practical invitation (look around, notice light) keeps it grounded
+- "Goodbye for now" - genuine farewell, door left open
+- Overall: a gracious host concluding a tour

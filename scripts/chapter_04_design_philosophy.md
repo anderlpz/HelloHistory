@@ -1,48 +1,45 @@
 # Chapter 4: The Design Philosophy
 
 **Duration:** ~3 minutes
-**Tone:** Passionate, articulate, teaching
+**Style:** Warm documentary narrator
 
 ---
 
 ## Script
 
-People ask me what makes this house special. Let me try to explain how I think about architecture.
+What makes this house so special? [thoughtfully] Let me try to explain how Mary thought about architecture.
 
-*[thoughtfully]*
+Look up at the ceiling. See those long beams running overhead — and how they extend past the walls, right out into the trees? That's not an accident. Mary wanted this house to feel like it grew from the hillside. Like a tree house. Like you're suspended among the evergreens, not just sitting on the ground.
 
-Look up. See those twenty-six-foot beams running overhead? See how they extend past the walls, out into the trees? That's intentional. I wanted this house to feel like it grew from the hillside. Like a tree house. Like you're suspended among the evergreens, not just sitting on the ground.
+[with appreciation]
 
-*[with conviction]*
+She loved to quote Frank Lloyd Wright: "The human spirit is best when not boxed in." And you can feel that philosophy everywhere in this house.
 
-Frank Lloyd Wright used to say the human spirit is best when not boxed in. I believe that. Architecture should free you, not contain you.
+This style — what architects call "skin and bones" — came out of the International modern movement. A light wooden frame, a thin elegant skin. But here in the Pacific Northwest, architects like Mary adapted it. They used local timber — Douglas fir, cedar, plywood. Honest materials that don't pretend to be something they're not.
 
-*[teaching mode]*
+[gesturing through words]
 
-This style — what we call "skin and bones" — came out of the International movement. Light wooden frame, thin elegant skin. But here in the Pacific Northwest, we adapted it. We used our local timber. Douglas fir. Cedar. Plywood and Masonite. Honest materials that don't pretend to be something they're not.
+Look at the walls around you. You can see exactly what they're made of — plywood panels held in place by simple sills. The same sills hold the glass. It's all one system, one plane. Nothing's hidden. The bones are visible, and they're beautiful.
 
-*[gesturing verbally]*
+[passionate]
 
-Look at the walls. You can see exactly what they're made of — plywood panels held in place by those simple sills. The same sills hold the glass. It's all one system, one plane. Nothing's hidden. The bones are visible and they're beautiful.
+And the way Mary brought the outdoors in — that was everything to her. Those clerestory windows pull light from every direction. The deck extends your living space into the forest. When you open that sliding door on a summer morning, where does the house end and the world begin?
 
-*[passionate]*
+That's the question she wanted you to ask.
 
-And the connection between inside and outside — that's everything to me. Those clerestory windows bring in light from every direction. The deck extends your living space into the forest. When you open that sliding door on a summer morning, where does the house end and the world begin? That's the question I wanted you to ask.
+[grounded]
 
-*[practical]*
+Now, some architects get so caught up in aesthetics that they forget people have to actually live in these spaces. Not Mary. Every cabinet is placed to define a room and give you storage. The plumbing is all on one wall to save money. Form follows function — but in her hands, function was beautiful.
 
-Now, some architects get so caught up in beauty they forget people have to live in these spaces. Not me. Every cabinet is placed to define a room and give you storage. The kitchen counter becomes your dining table. The plumbing is all on one wall to save money. Form follows function — but function can be beautiful.
+[summing up]
 
-*[summing up]*
-
-I suppose my philosophy comes down to this: use what you have, waste nothing, hide nothing, and always — always — let the light in.
+Mary's philosophy came down to this: use what you have, waste nothing, hide nothing, and always — always — let the light in.
 
 ---
 
 ## Notes for Voice Generation
 
-- This is Mary at her most articulate and passionate
-- Frank Lloyd Wright quote should feel natural, not name-dropping
-- "Skin and bones" and "International movement" - she's educated but not academic
-- The practical points ground the poetry
-- Final line should feel like a credo
+- This is Mary's ideas explained with admiration
+- Frank Lloyd Wright quote - respectful, not name-dropping
+- "Skin and bones" - educational but not academic
+- Final line is her credo - let it land

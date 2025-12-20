@@ -1,56 +1,53 @@
-# Chapter 5: My Other Work
+# Chapter 5: Her Other Work
 
 **Duration:** ~3.5 minutes
-**Tone:** Proud, matter-of-fact, legacy-minded
+**Style:** Warm documentary narrator
 
 ---
 
 ## Script
 
-Del Monte was just the beginning. Let me tell you about some of the other work I did over the years.
+Del Monte was just the beginning of Mary's story. [warmly] Let me tell you about some of the other remarkable things she accomplished.
 
-*[with particular pride]*
+In 1961, Mary partnered with a Tacoma developer named Ron Mitchell to create something called the Fantastic Homes. Their mission was simple but radical: prove that affordable housing didn't have to be cheap.
 
-In 1961, I partnered with a Tacoma developer named Ron Mitchell to create what we called the Fantastic Homes. We wanted to prove that affordable housing didn't have to be cheap. And we did.
+[with emphasis]
 
-*[matter-of-fact accomplishment]*
+And prove it they did.
 
-We built over two hundred homes in our first seven months. Prices started at thirty-nine ninety-five — less than four thousand dollars — for a well-designed, modern home. The median home price back then was almost fifteen thousand. We were offering something real to families who thought they'd never own a new house.
+They built over two hundred homes in their first seven months. Prices started at just thirty-nine ninety-five — less than four thousand dollars for a well-designed, modern home. The median home price at the time was almost fifteen thousand dollars. Mary and Ron were offering something real to families who never thought they'd own a new house.
 
-*[explaining]*
+[explanatory]
 
-I designed five models — the Thirty-Niner, the Forty-Niner, the Fifty-Niner, the Seventy-Niner, and a duplex. Same principles as this house: efficient use of space, standardized materials, sliding glass doors to bring the outdoors in, those beautiful fir ceilings. Quality doesn't have to cost a fortune.
+Mary designed five models — the Thirty-Niner, Forty-Niner, Fifty-Niner, Seventy-Niner, and a duplex. Same principles as this house: efficient use of space, standardized materials, sliding glass doors to bring the outdoors in, those beautiful fir ceilings. Quality didn't have to cost a fortune.
 
-*[with quiet pride]*
+[with pride]
 
-In 1964, Architectural Record featured one of our Fantastic Homes in their "Record Houses" issue. That's their annual showcase of the finest architect-designed houses in the country. I was in there alongside Richard Meier, I.M. Pei, Craig Ellwood — some of the biggest names in the profession.
+In 1964, Architectural Record magazine featured one of the Fantastic Homes in their annual "Record Houses" issue — their showcase of the finest architect-designed houses in the country. Mary was honored alongside Richard Meier, I.M. Pei, Craig Ellwood. Some of the biggest names in the profession.
 
-*[pause]*
+[slight pause]
 
-I was the only solo female practitioner they honored.
+She was the only solo female practitioner they recognized that year.
 
-*[moving on]*
+[transitioning warmly]
 
-I also designed our family's other homes. After our daughter Kit was born in 1956, we needed more space, so I designed a larger house down the road on Alameda Street. Same philosophy — light timber, plywood skin, indoor-outdoor living. We called it Alameda.
+Mary also designed the family's other homes. After their daughter Kit was born in 1956, they needed more space, so Mary designed a larger house down the road on Alameda Street. Same philosophy — light timber, plywood skin, indoor-outdoor living.
 
-*[warmly]*
+And then in 1969, after she and George sold Monitor Cabinets, Mary designed their final family home on Wollochet Bay near Gig Harbor. She called it Pampas Point, named for the pampas grass that grew over the water like a ship's bowsprit. That house was hexagonal — not a square corner in it. Eight-foot overhangs all around. It's where her family still gathers today.
 
-And then in 1969, after George and I sold Monitor Cabinets, I designed our final family home on Wollochet Bay near Gig Harbor. I called it Pampas Point, named for the pampas grass growing over the water like a ship's bowsprit. That house is hexagonal — not a square corner in it. Based on triangles, the way Wright liked to work. Eight-foot overhangs all around, sliding panels for walls. It's where my family still gathers today.
+[reflective]
 
-*[reflective]*
+Altogether, Mary designed hundreds of buildings over her career. But she always came back to the same question: how do you give people quality design at a price they can afford?
 
-Altogether, I designed hundreds of buildings — houses, offices, commercial spaces. But I always kept coming back to that question: how do you give people quality design at a price they can afford?
+As she put it: "All low-cost housing does not have to be cheap."
 
-*[firmly]*
-
-Because all low-cost housing does not have to be cheap. I proved that.
+She spent her whole career proving that was true.
 
 ---
 
 ## Notes for Voice Generation
 
-- "Fantastic Homes" should sound proud - this was meaningful work
-- The Architectural Record moment is significant - pause before "only solo female"
-- Don't linger on gender - state it and move on, that's Mary's style
-- Pampas Point description should feel warm - it's home
-- Final line is a thesis statement - deliver with conviction
+- "Fantastic Homes" told with genuine enthusiasm
+- The Architectural Record recognition - proud but not boastful
+- "Only solo female practitioner" - state it simply, let it speak for itself
+- Mary's quote at the end should feel like a thesis statement

@@ -1,56 +1,49 @@
 # Chapter 3: Building Del Monte
 
 **Duration:** ~3 minutes
-**Tone:** Practical, proud, storytelling
+**Style:** Warm documentary narrator
 
 ---
 
 ## Script
 
-Now let me tell you how George and I actually built this house.
+Now, let me tell you how this house actually came to be. [warmly] It's quite a story.
 
-*[matter-of-fact]*
+It was 1954. Mary and George Davis had been married for four years. They'd founded their cabinet company, Monitor Cabinets, back in 1948, and Mary had started her own architecture practice in 1952. They needed a place to live and work — but they weren't wealthy. Not even close.
 
-It was 1954. We'd been married four years, and we needed a place to live and work. We weren't wealthy — not even close — but we were resourceful. George and I had founded our cabinet company, Monitor Cabinets, back in 1948. We knew materials. We knew what things cost. And we knew how to work.
+[with appreciation]
 
-*[with humor]*
+What they were, though, was resourceful.
 
-We found this lot on Del Monte Street for six hundred and fifty dollars. You know why it was so cheap? That hillside. Steep as anything. Everyone else saw a problem. I saw an opportunity.
+They found this lot on Del Monte Street for six hundred and fifty dollars. [slight pause] You know why it was so cheap? That hillside. Steep as anything. Everyone else saw a problem. Mary saw an opportunity.
 
-*[warming to the story]*
+She designed the house to sit up on that slope, with covered parking tucked underneath. They left all the existing trees in place — no landscaping costs, no lawn to maintain. Just the evergreens that were already here.
 
-I designed the house to sit up on that slope, with covered parking underneath. We left all the existing trees in place — no landscaping costs, no lawn to maintain. Just the evergreens that were already here, doing exactly what nature intended.
+[leaning into the story]
 
-*[proudly]*
+And here's the thing about Mary: she designed the entire structure around the materials they made at their own mill. The posts are spaced exactly four feet three inches apart — the perfect distance to accept a standard four-by-eight sheet of plywood. Everything fits. Nothing's wasted.
 
-The whole structural system, I designed around the sheet goods we made at our mill. The posts are spaced exactly four feet three inches apart — perfect for accepting a standard four-by-eight sheet of plywood or Masonite. Everything fits. Nothing's wasted.
+Mary and George didn't just design this house — they built it. They worked right alongside the construction crew as laborers, errand runners, apprentice carpenters, painters. Whatever needed doing.
 
-*[leaning in]*
+[pause for effect]
 
-George and I worked right alongside the construction crew. We were errand boys, laborers, apprentice carpenters, painters — whatever needed doing. We'd work all day and fall into bed exhausted.
+Eight weeks. That's how long it took from breaking ground to moving in. Eight weeks.
 
-*[pause for effect]*
+[with satisfaction]
 
-Eight weeks. That's how long it took to build this house. Eight weeks from breaking ground to moving in.
+And the total cost? Six thousand, three hundred and fifty dollars. That included the lot, the house, and all the furniture. In 1954, that was less than half what most people paid for a new home.
 
-*[with satisfaction]*
+The cabinets, of course, were free — they made them at Monitor. The kitchen counter extends out and drops down to become the dining table. Every single inch serves a purpose.
 
-And the total cost? Six thousand three hundred and fifty dollars. That's the lot, the house, and all the furniture. In 1954, that was less than half what most people paid for a new home.
+[admiringly]
 
-*[reflective]*
-
-The cabinets, of course, were free — we made them ourselves at Monitor. The kitchen counter? It extends out and drops down to become the dining table. That Masonite board floating the couch in the living room? Same principle. Every inch serves a purpose.
-
-*[confidently]*
-
-This house proved what I always believed: good design doesn't require a big budget. It requires good thinking.
+Mary used to say that good design doesn't require a big budget. It just requires good thinking. This house is proof of that.
 
 ---
 
 ## Notes for Voice Generation
 
-- This is a "how we did it" story - practical and grounded
-- The $650 lot and $6,350 total should land as impressive
-- "Eight weeks" deserves a pause before and emphasis
-- Pride in resourcefulness, not in spending
-- "Good thinking" at the end should feel like a thesis statement
+- This is a "how they did it" story - appreciation for their resourcefulness
+- $650 lot and $6,350 total should land as impressive
+- "Eight weeks" deserves a pause and emphasis
+- "Good thinking" at the end - let it resonate
