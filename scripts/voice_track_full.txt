@@ -1,6 +1,6 @@
-Vagabond Hospitality presents: Welcome to Del Monte. <break time="1.5s" /> 
+Vagabond Hospitality presents: Welcome to Del Monte. <break time="1.5s" />
 
-This narration draws from the thesis <break time="0.5s" /> "Mary Lund Davis: A Portrait in Three Histories" by Nevis Charles Granum, as well as Architectural Record, the American Institute of Architects, and the University of Washington Libraries.
+This narration draws from the thesis: "Mary Lund Davis: A Portrait in Three Histories" by Nevis Charles Granum, as well as Architectural Record, the American Institute of Architects, and the University of Washington Libraries.
 
 Voice produced with ElevenLabs. Music composed with Suno. Script developed with Amplifier by Microsoft and crafted with care by Alex Lopez.
 
@@ -8,7 +8,7 @@ Voice produced with ElevenLabs. Music composed with Suno. Script developed with 
 
 [Chapter 1: Welcome to Del Monte]
 
-Welcome to Del Monte. <break time="1s" /> You're staying in a piece of mid-century architectural history.
+You're staying in a piece of mid-century architectural history.
 
 In 1954, a young architect named Mary Lund Davis built this house with her husband George. It was her first home, her office, and what she always called <break time="0.5s" /> her finest building.
 
@@ -18,7 +18,7 @@ Take a look around you. <break time="1s" /> Notice how open it feels, even thoug
 
 And those windows up high, just below the roofline — those are called clerestory windows. They run all the way around the house. Mary planned every single one for a specific time of day. <break time="0.5s" /> Morning light comes from the east, into the kitchen. Evening light comes from the west, into the bedroom. <break time="1s" />
 
-Mary truly thought of everything.
+Mary always sought to think about every square inch of her properties deeply and intentionally. That's what makes them so special.
 
 <break time="1s" />
 
@@ -35,6 +35,8 @@ Mary Lund was born on February 13th, 1922, in Sacramento, California. The family
 Her parents, Anders and Frieda Lund, were Danish immigrants from a tiny hamlet called Bredebro. They'd come to America during the First World War, when things were getting dangerous for young Danes back home. Anders had been a builder and a sailor in the old country.
 
 Mary's father was, by all accounts, a remarkable man. He taught her to sail on the Sacramento River. Taught her to shoot a twenty-two caliber rifle — she could take out a rattlesnake by the time she was ten. <break time="0.5s" /> And most importantly, he taught her to build.
+
+
 
 When Mary was just eight years old, the Great Depression hit California. Anders saw the need for small, affordable housing and started building homes. He handed his daughter a hammer and said, <break time="0.5s" /> "Come on, Mary. You're going to help."
 
@@ -64,25 +66,27 @@ What they were, though, was resourceful.
 
 <break time="1s" />
 
-They found this lot on Del Monte Street for six hundred and fifty dollars. You know why it was so cheap? <break time="0.5s" /> That hillside. Steep as anything. Everyone else saw a problem. <break time="0.5s" /> Mary saw an opportunity.
 
-She designed the house to sit up on that slope, with covered parking tucked underneath. They left all the existing trees in place — no landscaping costs, no lawn to maintain. Just the evergreens that were already here.
+
+They found this lot on Del Monte Street for six hundred and fifty dollars. And do you know why it was so cheap?? <break time="0.5s" /> The hillside it was on was steep as anything. Where everyone else saw a problem, Mary saw an opportunity.
 
 <break time="1s" /> 
 
+She designed the house to sit up on that slope, with covered parking tucked underneath. They left all the existing trees in place — no landscaping costs, no lawn to maintain. Just the evergreens that were already here.
+
+<break time="1s" />
+
 Now, here is something remarkable about Mary: she designed the entire structure around the materials they made at their own mill. The posts are spaced exactly four feet three inches apart — the perfect distance to accept a standard four-by-eight sheet of plywood. <break time="0.5s" /> Everything fits. Nothing's wasted.
 
-Mary and George didn't just design this house — they built it. They worked right alongside the construction crew as laborers, errand runners, apprentice carpenters, painters. Whatever needed doing.
+Now, Mary and George didn't just design this house... but played an active part in building it. They worked right alongside the construction crew as laborers, errand runners, apprentice carpenters, painters. Whatever needed doing.
 
-<break time="1.5s" /> 
+<break time="1.5s" />
 
 Eight weeks. <break time="1s" /> That's how long it took from breaking ground to moving in. <break time="0.5s" /> Eight weeks.
 
 <break time="1s" />
 
 And the total cost? Six thousand, three hundred and fifty dollars. That included the lot, the house, and all the furniture. In 1954, that was less than half what most people paid for a new home.
-
-The cabinets, of course, were free — they made them themselves. The kitchen counter extends out and drops down to become the dining table. Every single inch serves a purpose.
 
 <break time="1s" />
 
@@ -106,15 +110,11 @@ Look at the walls around you. <break time="0.5s" /> You can see exactly what the
 
 <break time="1s" />
 
-And the way Mary brought the outdoors in — that was everything to her. Those clerestory windows pull light from every direction. The deck extends your living space into the forest. When you open that sliding door on a summer morning, <break time="0.5s" /> where does the house end and the world begin?
+And the way Mary brought the outdoors in — that was everything to her. Those clerestory windows pull light from every direction. The deck extends your living space into the forest. When you open that sliding door on a summer morning, she wanted you to wonder: where does the house end and the world begin?
 
 <break time="1s" />
 
-That's the question she wanted you to ask.
-
-<break time="1s" />
-
-Mary's philosophy came down to this: use what you have, waste nothing, hide nothing, and always <break time="0.5s" /> — always — <break time="0.5s" /> let the light in.
+Mary's philosophy came down to this: use what you have, waste nothing, hide nothing, and always <break time="0.3s" /> — always — <break time="0.2s" /> let the light in.
 
 <break time="2s" />
 
@@ -122,106 +122,44 @@ Mary's philosophy came down to this: use what you have, waste nothing, hide noth
 
 Del Monte marked only the first chapter in Mary's career. Now, let me tell you about some of the other wonderful things she went on to accomplish.
 
-In 1961, Mary partnered with a Tacoma developer named Ron Mitchell to create something called the Fantastic Homes. Their mission was simple but radical: prove that affordable housing didn't have to look cheap.
-
-<break time="0.5s" />
-
-And that is precisely what they did.
+In 1961, Mary partnered with a Tacoma developer named Ron Mitchell to create something called the Fantastic Homes. Their mission was simple but radical: to prove that affordable housing didn't have to look cheap.
 
 <break time="1s" />
 
 They built over two hundred homes in their first seven months. Five different models, all with the same principles as this house: efficient use of space, standardized materials, sliding glass doors to bring the outdoors in. Prices started under four thousand dollars — when the average home cost nearly fifteen thousand. Mary and Ron were offering something real to families who never thought they'd own a new house.
 
-In 1964, Architectural Record magazine featured one of the Fantastic Homes in their annual "Record Houses" issue — a showcase of the finest architect-designed houses in the country. Mary was honored alongside Richard Meier, I.M. Pei, and Craig Ellwood.
-
-<break time="1s" />
-
-She was the only woman recognized that year.
+In 1964, Architectural Record magazine featured one of the Fantastic Homes in their annual "Record Houses" issue — a showcase of the finest architect-designed houses in the country. Mary was honored alongside Richard Meier, I.M. Pei, and Craig Ellwood. She was the only woman recognized that year.
 
 <break time="1.5s" />
 
 Mary also designed the family's later homes. After their daughter Kit was born, they needed more space, so Mary designed a larger house down the road. And in 1969, she designed their final family home on Wollochet Bay — a hexagonal house she called Pampas Point, with eight-foot overhangs and not a square corner in it.
 
-Altogether, Mary designed hundreds of buildings. But she always came back to the same question: <break time="0.5s" /> how do you give people quality design at a price they can afford?
-
-<break time="1s" />
-
-As she put it: "All low-cost housing does not have to be cheap."
+Altogether, Mary designed hundreds of buildings. 
 
 <break time="2s" />
 
-[Chapter 6: Personal Stories]
-
-Now, I've told you about the buildings. <break time="0.5s" /> Let me share a few stories about the life Mary lived.
-
-Mary met George Davis at the University of Washington. They were classmates in the architecture program, and they both won the student gold medal the year they graduated. <break time="0.5s" /> She made him wait seven years before she'd marry him.
-
-<break time="1s" />
-
-They got married in 1950, at the home Mary and her father had built together in Sacramento. The family took photos under the orange trees, and the newlyweds drove off in a 1950 Ford convertible. Mary used to say they were going to <break time="0.5s" /> "set the world on fire in architecture."
-
-<break time="1s" />
-
-Now, here's something you should know about Mary: she was a champion sailor. Her father had taught her on the Sacramento River when she was just a girl, and she never stopped. She raced all up and down the West Coast — and in 1960, she won the Adams Cup, the national women's sailing championship.
-
-She never even took her trophies out of their plastic wrapping. <break time="0.5s" /> That simply wasn't Mary's way.
-
-<break time="1.5s" />
-
-Oh, and I have to tell you about the horse.
-
-<break time="0.5s" />
-
-One anniversary, Mary and George were driving through Hailey, Idaho, and they spotted a life-sized fiberglass horse perched on top of a sign pole at a feed store. Mary couldn't stop looking at it.
-
-Sometime later, George surprised her by craning that very horse into their apple orchard.
-
-<break time="0.5s" />
-
-So Mary surprised him right back. She went out with a can of spray paint and painted the whole thing purple.
-
-<break time="0.5s" />
-
-"What shall we call it?" George asked.
-
-<break time="1s" />
-
-"A horse of another color," she said.
-
-<break time="1.5s" />
-
-After closing her architecture practice in 1970, Mary turned to landscape design. She collected Japanese maples — a hundred and eighty of them. She'd drive through neighborhoods looking for neglected ones, knock on doors, and crane them onto a flatbed truck. One was so old that the Smithsonian came out to catalog it.
-
-<break time="1s" />
-
-That's the kind of person Mary was. Always looking. Always making something beautiful out of what others had overlooked.
-
-<break time="2s" />
-
-[Chapter 7: Closing]
+[Chapter 6: Closing]
 
 Well, I've kept you on the line for a while now. <break time="0.5s" /> Thank you for listening.
 
 <break time="1s" />
 
-Before you hang up, take a moment. Look around — really look. <break time="1s" /> Notice how the light falls. Notice where your eye travels. Step out onto that deck if you can, and feel how the inside and outside become one thing.
+Before you hang up, take a moment. Look around — really look. <break time="1s" /> Notice how the light falls. Notice where your eye travels.
+
+Step out onto that deck, and feel how the inside and outside become one thing.
 
 <break time="1s" />
 
-This house has stood for more than seventy years now. Families have gathered here, morning light has poured through those east windows, evening light has settled into the bedroom — just as Mary planned. The place still works, exactly as she intended.
+This house has stood for more than seventy years. Morning light has poured through those east windows, evening light has settled into the
 
-<break time="1s" />
+bedroom — just as Mary planned. Look up at those beams stretching out toward the trees. They've held this roof through every season since
 
-That's what good design does. <break time="0.5s" /> It lasts.
+1954. <break time="0.5s" /> The place still works. It still feels right. And that's what good design does. It persists.
 
 <break time="1.5s" />
 
-Thank you for visiting Del Monte. Enjoy your stay. Open the windows. Let the air in. Watch the light change through the day.
+Thank you for visiting Del Monte. Open the windows. Let the air in. Watch the light change through the day.
 
 <break time="1s" />
 
-And if you pick up this phone again, I'll be happy to tell you the story from the beginning.
-
-<break time="1.5s" />
-
-Goodbye for now.
+And if you pick up this phone again, I'll be happy to tell you the story from the beginning. <break time="0.5s" /> Goodbye for now.
