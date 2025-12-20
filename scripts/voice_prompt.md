@@ -3,7 +3,7 @@
 ## Voice Prompt
 
 ```
-A woman in her 40s with a warm, inviting voice. She speaks like a documentary narrator who genuinely loves her subject - knowledgeable but never dry, educational but filled with wonder. Her tone is rich and clear with a neutral American accent. She has the quality of a trusted friend sharing something special with you, like a museum guide who can't help but smile when telling her favorite stories. Unhurried, conversational pacing with natural warmth. Perfect audio quality.
+A 1960s documentary narrator. A woman in her 40s with a warm, refined voice - like a narrator from a mid-century educational film or the Wonderful World of Disney. She has that classic optimistic, earnest quality of postwar America. Articulate with clear enunciation, unhurried pacing, and genuine warmth. Neutral American accent with a slightly transatlantic quality. The audio has a warm, vintage feel - like a well-preserved film from 1962. She sounds like she's sharing something truly wonderful with you.
 ```
 
 ---
@@ -18,23 +18,34 @@ Welcome to Del Monte. [warmly] In 1954, a young architect named Mary Lund Davis 
 
 ## Settings
 
-- **Guidance Scale:** 35-40%
+- **Guidance Scale:** 40-45% (higher to capture the specific vintage style)
 
 ---
 
 ## Voice Character Notes
 
+**The Era:**
+- 1960s educational documentary
+- Wonderful World of Disney / Walt Disney Hour
+- Postwar American optimism
+- Mid-century modern enthusiasm
+
 **She is:**
-- Warm and inviting (like Walt Disney introducing Tomorrowland)
+- Warm and refined (not stiff)
 - Genuinely delighted to share this story
-- Knowledgeable but accessible
-- A storyteller, not a lecturer
+- Articulate with clear enunciation
+- Earnest and optimistic
 
 **She is NOT:**
-- Pretending to be Mary
-- Dry or academic
-- Overly formal
-- Spooky or mystical
+- Modern podcast style
+- Overly casual or contemporary
+- Ironic or detached
+- Clinical or cold
+
+**Audio Quality:**
+- Warm, slightly vintage
+- Like a well-preserved 1960s film
+- Not crisp/modern, not degraded/scratchy
 
 **The feeling:**
-"Let me tell you about something wonderful..."
+"Let me show you something marvelous..."
