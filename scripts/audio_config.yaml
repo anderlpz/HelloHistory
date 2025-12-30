@@ -1,0 +1,52 @@
+# HelloHistory Audio Generation Config
+# 
+# Get your voice_id from ElevenLabs:
+#   1. Go to https://elevenlabs.io/app/voice-lab
+#   2. Create or select a voice
+#   3. Click the ID button to copy the voice ID
+#
+# Voice prompt (for creating a new voice):
+#   See scripts/voice_prompt.md
+
+# ElevenLabs settings
+voice_id: "YOUR_VOICE_ID_HERE"  # Required: paste your voice ID
+model_id: "eleven_monolingual_v1"  # or "eleven_multilingual_v2"
+
+# Voice settings (0.0 to 1.0)
+# These match the voice_prompt.md recommendations
+stability: 0.5
+similarity_boost: 0.75
+style: 0.45  # Higher (40-45%) to capture vintage documentary style
+use_speaker_boost: true
+
+# Output settings
+output_format: "mp3_44100_128"  # Good quality for speech
+
+# Chapter definitions
+# Each chapter needs an id and either a source file or inline text
+chapters:
+  - id: "00_intro"
+    text: |
+      Welcome to Del Monte. 
+      Pick up the receiver to begin your journey through this remarkable mid-century home.
+
+  - id: "01_welcome"
+    source: "voice-tracks/01_welcome.txt"
+
+  - id: "02_marys_story"
+    source: "voice-tracks/02_marys_story.txt"
+
+  - id: "03_building"
+    source: "voice-tracks/03_building_del_monte.txt"
+
+  - id: "04_design"
+    source: "voice-tracks/04_design_philosophy.txt"
+
+  - id: "05_other_work"
+    source: "voice-tracks/05_other_work.txt"
+
+  - id: "06_closing"
+    source: "voice-tracks/06_closing.txt"
+
+  # Note: 07_song.mp3 is music, not generated speech
+  # It's copied manually from src/DelMonteDreaming.mp3

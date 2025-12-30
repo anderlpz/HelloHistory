@@ -30,6 +30,33 @@ test-audio: ## Quick test of audio playback
 	afplay src/audio/00_intro.mp3
 
 # ============================================================================
+# Audio Generation (ElevenLabs)
+# ============================================================================
+
+.PHONY: audio-generate
+audio-generate: ## Generate all audio chapters (requires ELEVENLABS_API_KEY)
+	python3 scripts/generate_audio.py --all
+
+.PHONY: audio-chapter
+audio-chapter: ## Generate a single chapter: make audio-chapter CH=01_welcome
+	@if [ -z "$(CH)" ]; then \
+		echo "Usage: make audio-chapter CH=01_welcome"; \
+		echo ""; \
+		echo "Available chapters:"; \
+		grep "id:" scripts/audio_config.yaml | sed 's/.*id: "/  /; s/"//'; \
+	else \
+		python3 scripts/generate_audio.py $(CH); \
+	fi
+
+.PHONY: audio-list-voices
+audio-list-voices: ## List available ElevenLabs voices
+	python3 scripts/generate_audio.py --list-voices
+
+.PHONY: audio-dry-run
+audio-dry-run: ## Preview audio generation without calling API
+	python3 scripts/generate_audio.py --all --dry-run
+
+# ============================================================================
 # Deployment
 # ============================================================================
 
