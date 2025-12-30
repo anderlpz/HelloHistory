@@ -15,29 +15,29 @@ Controls:
 Usage:
     python3 bench_player.py
 
-Requirements:
-    pip install pygame
+Audio Backend:
+    - macOS: Uses built-in 'afplay' command (no dependencies)
+    - Linux/Pi: Uses pygame (install with: sudo apt install python3-pygame)
 
 Note: This script requires a terminal that can capture keyboard input.
       Run directly in a terminal, not through an IDE.
 """
 
+import os
 import sys
 import time
+import signal
 import select
 import termios
 import tty
+import subprocess
 from pathlib import Path
 from enum import Enum, auto
+from abc import ABC, abstractmethod
 
-# Check for pygame before importing
-try:
-    import pygame
-except ImportError:
-    print("Error: pygame not installed")
-    print("Install with: pip install pygame")
-    print("Or on Pi: sudo apt install python3-pygame")
-    sys.exit(1)
+# Detect platform
+IS_MACOS = sys.platform == "darwin"
+IS_LINUX = sys.platform.startswith("linux")
 
 
 class State(Enum):
@@ -45,14 +45,138 @@ class State(Enum):
     PLAYING = auto()   # "Off hook" - playing audio
 
 
+# ============================================================================
+# Audio Backends
+# ============================================================================
+
+class AudioBackend(ABC):
+    """Abstract base class for audio playback backends."""
+    
+    @abstractmethod
+    def play(self, filepath: Path) -> None:
+        """Start playing an audio file."""
+        pass
+    
+    @abstractmethod
+    def stop(self) -> None:
+        """Stop current playback."""
+        pass
+    
+    @abstractmethod
+    def is_playing(self) -> bool:
+        """Check if audio is currently playing."""
+        pass
+    
+    @abstractmethod
+    def cleanup(self) -> None:
+        """Clean up resources."""
+        pass
+
+
+class AfplayBackend(AudioBackend):
+    """
+    macOS audio backend using the built-in 'afplay' command.
+    No external dependencies required.
+    """
+    
+    def __init__(self):
+        self.process: subprocess.Popen | None = None
+    
+    def play(self, filepath: Path) -> None:
+        self.stop()  # Stop any current playback
+        self.process = subprocess.Popen(
+            ["afplay", str(filepath)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+    
+    def stop(self) -> None:
+        if self.process:
+            self.process.terminate()
+            try:
+                self.process.wait(timeout=0.5)
+            except subprocess.TimeoutExpired:
+                self.process.kill()
+            self.process = None
+    
+    def is_playing(self) -> bool:
+        if self.process is None:
+            return False
+        return self.process.poll() is None
+    
+    def cleanup(self) -> None:
+        self.stop()
+
+
+class PygameBackend(AudioBackend):
+    """
+    Cross-platform audio backend using pygame.
+    Requires: pip install pygame (or sudo apt install python3-pygame on Pi)
+    """
+    
+    def __init__(self):
+        import pygame
+        pygame.mixer.init()
+        self.pygame = pygame
+    
+    def play(self, filepath: Path) -> None:
+        self.pygame.mixer.music.load(str(filepath))
+        self.pygame.mixer.music.play()
+    
+    def stop(self) -> None:
+        self.pygame.mixer.music.stop()
+    
+    def is_playing(self) -> bool:
+        return self.pygame.mixer.music.get_busy()
+    
+    def cleanup(self) -> None:
+        self.pygame.mixer.quit()
+
+
+def get_audio_backend() -> AudioBackend:
+    """Get the appropriate audio backend for this platform."""
+    
+    if IS_MACOS:
+        # Check if afplay is available (should always be on macOS)
+        try:
+            subprocess.run(["which", "afplay"], capture_output=True, check=True)
+            print("Audio backend: afplay (macOS built-in)")
+            return AfplayBackend()
+        except subprocess.CalledProcessError:
+            pass
+    
+    # Try pygame (works on Linux/Pi, may work on Mac with older Python)
+    try:
+        import pygame
+        pygame.mixer.init()
+        pygame.mixer.quit()
+        print("Audio backend: pygame")
+        return PygameBackend()
+    except Exception as e:
+        pass
+    
+    # No backend available
+    print("Error: No audio backend available!")
+    if IS_MACOS:
+        print("  afplay should be available on macOS. Check your system.")
+    else:
+        print("  Install pygame: sudo apt install python3-pygame")
+    sys.exit(1)
+
+
+# ============================================================================
+# Bench Player
+# ============================================================================
+
 class BenchPlayer:
     """
     Keyboard-controlled audio player for bench testing.
     Simulates the phone behavior without GPIO.
     """
     
-    def __init__(self, audio_dir: Path):
+    def __init__(self, audio_dir: Path, backend: AudioBackend):
         self.audio_dir = audio_dir
+        self.backend = backend
         self.state = State.IDLE
         self.current_track = 0
         
@@ -77,9 +201,6 @@ class BenchPlayer:
         if missing:
             print(f"Warning: Missing audio files: {missing}")
             print(f"Looking in: {self.audio_dir.absolute()}")
-        
-        # Initialize pygame mixer
-        pygame.mixer.init()
         
         # Store original terminal settings for restoration
         self.old_settings = None
@@ -123,7 +244,7 @@ class BenchPlayer:
     def on_hang_up(self):
         """Simulate hanging up - stop playback."""
         if self.state == State.PLAYING:
-            pygame.mixer.music.stop()
+            self.backend.stop()
             self.state = State.IDLE
             self.current_track = 0
             print("\n📞 Phone hung up - stopped")
@@ -143,7 +264,7 @@ class BenchPlayer:
             return
         
         if 0 <= number <= 7:
-            pygame.mixer.music.stop()
+            self.backend.stop()
             self.current_track = number
             self.play_current()
             print(f"\n⏭️  Jumped to: {self.tracks[number][1]}")
@@ -163,9 +284,8 @@ class BenchPlayer:
         
         if track_path.exists():
             try:
-                pygame.mixer.music.load(str(track_path))
-                pygame.mixer.music.play()
-            except pygame.error as e:
+                self.backend.play(track_path)
+            except Exception as e:
                 print(f"\n❌ Error playing {filename}: {e}")
         else:
             print(f"\n❌ File not found: {track_path}")
@@ -176,7 +296,7 @@ class BenchPlayer:
     
     def check_track_ended(self):
         """Check if current track finished, advance to next."""
-        if self.state == State.PLAYING and not pygame.mixer.music.get_busy():
+        if self.state == State.PLAYING and not self.backend.is_playing():
             self.current_track += 1
             if self.current_track < len(self.tracks):
                 print(f"\n▶️  Next: {self.tracks[self.current_track][1]}")
@@ -226,7 +346,7 @@ class BenchPlayer:
         finally:
             # Restore terminal settings
             termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.old_settings)
-            pygame.mixer.quit()
+            self.backend.cleanup()
 
 
 def main():
@@ -254,7 +374,10 @@ def main():
     
     print(f"Using audio directory: {audio_dir.absolute()}")
     
-    player = BenchPlayer(audio_dir)
+    # Get appropriate audio backend for this platform
+    backend = get_audio_backend()
+    
+    player = BenchPlayer(audio_dir, backend)
     player.run()
 
 
