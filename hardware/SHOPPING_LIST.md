@@ -79,16 +79,17 @@ The existing phone cord has 4 wires:
 
 ---
 
-## Ordering Checklist
+## Ordering Checklist (status)
 
-- [ ] Raspberry Pi Zero 2 WH (Adafruit)
-- [ ] CanaKit Power Supply (Amazon)
-- [ ] SanDisk 32GB MicroSD (Amazon)
-- [ ] UGREEN USB Audio Adapter (Amazon)
-- [ ] MakerHawk Speaker 2-pack (Amazon)
-- [ ] EDGELEC Jumper Wires 30cm (Amazon)
-- [ ] Amazon Basics 3.5mm Cable (Amazon)
-- [ ] Wago 221 Lever Nuts (Amazon)
+- [x] Raspberry Pi Zero 2 WH kit (Amazon B0D7VKHJQL) — includes 32GB card + adapters; **reflash SD** with Raspberry Pi OS Lite
+- [x] CanaKit Power Supply (Amazon)
+- [x] SanDisk 32GB MicroSD — covered by kit above; still reflash
+- [x] Lexar E-Series 32GB MicroSD (spare)
+- [x] UGREEN USB Audio Adapter (Amazon) — delivered (2 units)
+- [x] MakerHawk Speaker 2-pack (Amazon)
+- [x] EDGELEC Jumper Wires 30cm (Amazon)
+- [x] Amazon Basics 3.5mm Cable (Amazon)
+- [x] Lever Nuts (Wago 221 compatible, assorted)
 
 ---
 
