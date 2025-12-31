@@ -184,12 +184,12 @@ class BenchPlayer:
         self.tracks = [
             ("00_intro.mp3", "Intro"),
             ("01_welcome.mp3", "Chapter 1: Welcome to Del Monte"),
-            ("02_marys_story.mp3", "Chapter 2: Mary's Story"),
-            ("03_building.mp3", "Chapter 3: Building Del Monte"),
+            ("02_marys_story.mp3", "Chapter 2: Mary's Early Life"),
+            ("03_building.mp3", "Chapter 3: Building the House"),
             ("04_design.mp3", "Chapter 4: The Design Philosophy"),
-            ("05_other_work.mp3", "Chapter 5: Her Other Work"),
+            ("05_other_work.mp3", "Chapter 5: Beyond Del Monte"),
             ("06_closing.mp3", "Chapter 6: Closing"),
-            ("07_song.mp3", "Bonus: Song"),
+            ("07_song.mp3", "Credits & Outsong"),
         ]
         
         # Validate audio files exist
