@@ -1,192 +1,163 @@
-# HelloHistory Case Study
+# The Phone That Tells Stories
 
-## How I Built a Hardware Product with No Hardware Experience
+There's something about old phones.
 
-I wanted to turn a vintage rotary phone into an interactive storytelling device. When guests at our rental property pick up the handset, they'd hear the story of Mary Lund Davis—the architect who designed the house in 1954.
+They have weight. Presence. When you pick up a rotary handset, you're holding an object that was designed to be held—curved to fit against your ear, heavy enough to feel like it matters. Nobody ever absent-mindedly picked up a rotary phone.
 
-The problem: I'd never worked with a Raspberry Pi. I didn't know GPIO from HDMI. I hadn't touched a soldering iron since high school. And I had no idea how the internals of a rotary phone worked.
-
-Two weeks later, I had a working product.
-
-This is how that happened.
+I wanted to use that. I had a vintage phone and a story worth telling.
 
 ---
 
-## The Idea
+The house I was working on was designed in 1954 by Mary Lund Davis—the first licensed female architect in Washington State after World War II. She built it as her own home and office, a modernist experiment in the suburbs of Tacoma. Guests who stay there often ask about its history, and I'd been looking for a way to share Mary's story that felt right for the space.
 
-The Del Monte house was designed by Mary Lund Davis, the first licensed female architect in Washington State after WWII. Guests often ask about the home's history, and I wanted a way to tell Mary's story that felt special—something that matched the mid-century character of the house.
+A touchscreen kiosk wasn't it. Neither was a QR code linking to a website.
 
-A vintage rotary phone felt right. Pick it up, hear a story. No screens, no apps, no instructions needed.
+But what if you could pick up a phone and hear her story? No instructions, no interface. Just the gesture everyone already knows: lift the handset, put it to your ear, listen.
 
-But I had no idea how to actually build it.
-
----
-
-## Starting From Zero
-
-I started by asking Amplifier what I'd need. Not "how do I build this"—just "what would this require?"
-
-The response was a project plan: Raspberry Pi for the brain, GPIO pins to detect when the handset lifts, USB audio adapter for sound output. A shopping list with specific components and links. An explanation of why Pi over Arduino (I needed audio playback, not just signals).
-
-I didn't have to research "Raspberry Pi vs Arduino for audio projects" or wade through forum posts. I described what I wanted, and got a concrete plan.
-
-**First lesson:** Having an AI that understood the full problem—not just code—meant I could skip weeks of research.
+The idea was simple. Building it was another matter.
 
 ---
 
-## The Knowledge Problem
+I should be honest about where I started: I had never worked with a Raspberry Pi. I didn't know what GPIO meant. The last time I'd touched anything resembling electronics was a high school science fair project that didn't work. I had no idea how the inside of a rotary phone was wired, or whether what I wanted was even possible.
 
-Mary Lund Davis isn't famous. There's no Wikipedia page. The best source is a 200-page academic thesis from the University of Washington.
-
-I gave Amplifier the thesis and asked it to extract everything relevant: her education, her career, the story of building this specific house, her later work. It pulled out the key facts, organized them into a biography document, and identified the most compelling stories for the narration.
-
-Then it wrote the scripts. Seven chapters, about 12 minutes total, in a warm narrator voice. We iterated on tone and pacing until it felt right.
-
-**What this meant:** I went from "there's a thesis somewhere" to "here are recording-ready scripts" without manually reading 200 pages or struggling to write narration myself.
+What I did have was Amplifier—an AI tool I'd been using for software projects. And a hunch that the gap between "person who can't do hardware" and "person who built a hardware thing" might be smaller than it used to be.
 
 ---
 
-## First Contact with Hardware
+The first conversation was just exploration. I described what I wanted: a phone that plays audio when you pick it up and stops when you hang up. What would that require?
 
-The Pi arrived. I'd never flashed an SD card with an operating system before.
+The answer came back structured but not overwhelming: a Raspberry Pi as the brain, GPIO pins to detect the hook switch, a USB audio adapter for sound. A shopping list with links. An explanation of why Pi over Arduino—I needed audio playback, not just electronic signals.
 
-Amplifier walked me through it: download Raspberry Pi Imager, select the OS, configure WiFi and SSH during imaging so the Pi would be accessible headless (no monitor). Even small details—like naming the Pi `delmonte.local` so I could find it on the network.
+I didn't have to spend a weekend researching "best microcontroller for audio projects" or parsing conflicting forum advice. I described the destination, and got a map.
 
-When I couldn't connect after booting, we debugged together. Was my laptop on the wrong WiFi network? (Yes.) Was the Pi's hostname resolving? (Not at first.) We tried different approaches until `ping delmonte.local` succeeded.
-
-Then I was in via SSH, looking at a Linux command line on a tiny computer I'd never touched.
+This became the pattern. Not "how do I do X" but "I want Y to happen"—and then working backward together to figure out X.
 
 ---
 
-## Building the Development Workflow
+The first real challenge wasn't technical. It was content.
 
-Before touching hardware, Amplifier set up a development workflow:
+Mary Lund Davis isn't famous. There's no Wikipedia article, no documentary. The best source is a 200-page academic thesis buried in the University of Washington library system.
 
-```
-make deploy    → Push code to Pi
-make logs      → See what's happening
-make restart   → Restart the service
-make ssh       → Connect to Pi
-```
+I fed Amplifier the thesis and asked it to find the good stuff: her education, her career, the specific story of building this house, her later work designing affordable homes in the 1960s. It pulled out the threads, organized them into a knowledge base, and identified the moments that would make good narration.
 
-It also created a "bench player"—a version of the audio player that runs on my Mac, so I could test the playlist logic without the Pi. When I made changes, I'd test locally first, then `make deploy` to push to the actual device.
+Then it wrote the scripts. Seven chapters, about twelve minutes total, in a warm storyteller voice. We went back and forth on tone—less formal here, more detail there, let this moment breathe. The kind of editing you'd do with a human collaborator.
 
-**Why this mattered:** I wasn't just getting code. I was getting the infrastructure to iterate quickly. Every hardware project needs this, but I wouldn't have known to build it myself.
+By the end, I had recording-ready scripts without having manually read 200 pages or stared at a blank document trying to write narration.
 
 ---
 
-## The Audio Puzzle
+The Pi arrived in a box smaller than I expected.
 
-The audio files needed to go somewhere. I had scripts, but needed actual recordings.
+There's a particular anxiety that comes with hardware. Software is forgiving—you can undo, revert, try again. Hardware feels permanent. You plug the wrong thing into the wrong place, and maybe something burns.
 
-Amplifier created a workflow for ElevenLabs (text-to-speech): a Python script that takes the chapter text and generates MP3s with the right voice settings. It handled the API integration, file naming, and output organization.
+I started with the basics: flashing an operating system onto an SD card. Amplifier walked me through it, including details I wouldn't have thought to ask about—like configuring WiFi and SSH during the imaging process so the Pi would be accessible without a monitor.
 
-Later, when I re-recorded everything as a single file and needed to split it by chapter, Amplifier wrote the splitting logic based on timestamps I provided.
+First boot. Nothing visible—this was "headless," just a tiny computer drawing power somewhere in my house. I tried to connect from my laptop.
 
-**The pattern:** Every time I hit a sub-problem, we solved it together—not by me googling "how to split mp3 by timestamp python" but by describing what I needed and getting working code.
+Connection refused.
+
+The next twenty minutes were debugging. Was my laptop on the wrong WiFi network? Was the Pi's hostname resolving? We tried different approaches, checked different things. Eventually: `ping delmonte.local` succeeded, and I was in.
+
+I was looking at a Linux command line on a computer I'd never touched, running an operating system I'd never configured, and somehow it was working.
 
 ---
 
-## The Wiring Challenge
+Before any hardware integration, Amplifier did something I wouldn't have thought to ask for: it built a development workflow.
 
-Here's where it got interesting.
+A Makefile appeared with commands like `make deploy` to push code to the Pi, `make logs` to see what was happening, `make restart` to restart the service. A "bench player" that runs on my laptop so I could test the audio logic without the actual hardware.
 
-I needed to detect when the handset lifts. That meant finding the "hook switch"—the mechanism that knows whether the phone is on-hook or off-hook. I opened the phone and found... seven wires. No labels. No documentation.
+This is the kind of thing experienced developers do automatically—set up their environment before writing application code. I didn't know to ask for it. The AI understood that the meta-work matters as much as the work.
 
-I described what I saw: "Gray, yellow, orange, two whites, a brown, and another gray."
+---
 
-Amplifier explained what hook switches typically look like electrically, then wrote a test script that monitors GPIO pins for changes. It deployed the script to my Pi, and I started testing.
+The moment I'll remember is the wiring.
 
-"Touch the gray and yellow wires together."
+I opened the phone and found seven wires connected to the hook switch—the mechanism that detects whether the handset is lifted. No labels. No documentation. Just colored wires: gray, yellow, orange, two whites, a brown, and another gray.
+
+I described what I saw. Amplifier explained how hook switches typically work electrically, then wrote a test script to monitor GPIO pins for changes. It deployed the script to my Pi while I stood there holding wires.
+
+"Touch the gray and yellow together."
 
 Nothing.
 
 "Try gray and orange."
 
-Nothing.
+Still nothing.
 
-"What happens when you just lift and lower the handset while watching the output?"
+We kept going. Different combinations. Different theories. At some point, I just started lifting and lowering the handset while watching the output—and there it was. A signal change. The yellow wire.
 
-I found it—the yellow wire, completing a circuit when the handset lifted.
+This was something I hadn't experienced before with AI tools. I was physically manipulating hardware while the AI wrote code, deployed it to my device, watched the results with me, and suggested next steps. The feedback loop was seconds, not minutes. We were debugging together in real-time.
 
-**This was the moment I understood the difference.** I was physically holding wires while the AI wrote code, deployed it to my device, and interpreted the results. The feedback loop was seconds, not minutes. We were debugging hardware together in real-time.
-
----
-
-## The Speaker Surprise
-
-The plan was to use a small external speaker. But when I looked at the phone's original earpiece, I wondered: could I use that instead?
-
-Two white wires ran to the earpiece. I asked if I could connect them to the audio output.
-
-Amplifier explained the electrical considerations—impedance matching, power levels—but said it should work for testing. I wired it up with lever nuts (no soldering, per recommendation for a first hardware project).
-
-It worked. The original 1960s earpiece speaker played the audio. The sound quality wasn't perfect, but it was authentic—exactly right for a vintage phone telling a vintage story.
+That's different from getting advice. Advice is "you should try checking the continuity between these wires." Partnership is standing next to someone while they hand you the multimeter.
 
 ---
 
-## The Bugs
+The speaker was a happy accident.
 
-Things didn't always work the first time.
+I'd planned to use a small external speaker—something cheap from Amazon. But the phone had its original earpiece, and I wondered if it could work.
 
-**Audio disappeared after reboot.** The volume settings weren't persisting. Amplifier checked `amixer`, found the issue, and added volume configuration to the startup script.
+Two white wires ran to it. Amplifier explained the electrical considerations—impedance, power levels—but said it was worth trying. I used lever nuts to make the connection (no soldering, per recommendation for someone who'd never done this before).
 
-**Wrong audio device.** Linux saw multiple sound cards and was using the wrong one. Amplifier SSH'd in, ran `aplay -l` to list devices, and updated the config to target the USB adapter specifically.
+It worked. The original 1960s speaker played the audio.
 
-**Service wouldn't start.** A Python dependency was missing. Amplifier checked the logs, identified the missing package, and updated the setup script.
-
-Each bug was found and fixed in minutes. Not because the problems were simple—but because the AI could actually look at logs, run commands, and test fixes directly on the device.
+The sound quality isn't audiophile-grade. It's a little tinny, a little vintage. Which turned out to be exactly right—you're holding an old phone, and it sounds like an old phone. The imperfection became part of the experience.
 
 ---
 
-## Going to Production
+Things broke along the way. Of course they did.
 
-The final step: making it work automatically. When the phone powers on, the service should start. No manual intervention.
+The audio disappeared after a reboot—volume settings weren't persisting. The Pi kept choosing the wrong sound card. A Python dependency was missing on the production device but not on my test setup.
 
-Amplifier created a systemd service file, wrote an installation script, and added a Makefile command to set it up. One command: `make setup-service`.
-
-Now the phone boots, connects to WiFi, starts the listener service, and waits for someone to pick up the handset. Completely standalone.
+Each bug was found and fixed in minutes. Not because the problems were trivial, but because the AI could actually look at logs, run commands, test fixes, and iterate. When you're debugging with something that can see what you see and do what you would do, problems shrink.
 
 ---
 
-## The Result
+The last step was making it automatic. When the phone powers on, it should just work. No SSH required, no manual startup.
 
-A vintage rotary phone that:
-- Plays 8 chapters of narration about Mary Lund Davis (~12 minutes)
-- Uses the original earpiece speaker
-- Detects handset lift/hangup via GPIO
-- Starts automatically on power-on
-- Can be updated remotely over WiFi
+A systemd service file. An installation script. A Makefile command to set everything up: `make setup-service`.
 
-Built by someone who, two weeks earlier, had never configured a Raspberry Pi.
+Now the phone boots, connects to WiFi, starts listening for the hook switch, and waits. Pick up the handset, and Mary's story begins. Hang up, and it stops. Completely standalone.
 
 ---
 
-## What Made This Possible
+I keep thinking about what actually happened here.
 
-Looking back, several things stand out:
+Two weeks. Zero hardware experience to start. A working product at the end—not a prototype, not a proof of concept, but something I can plug in and walk away from.
 
-**Cross-domain help.** This project required research, writing, audio production, Python, Linux administration, electronics, and hardware debugging. Switching between specialized tools for each domain would have been exhausting. Having one AI that could help with all of it—and remember the context—made it tractable.
+The obvious conclusion is "AI is powerful now," which is true but not quite right. What's actually different is the shape of the help.
 
-**Direct execution.** The AI didn't just tell me what commands to run. It ran them, saw the output, and adjusted. When debugging the hook switch, it wrote test scripts, deployed them to my Pi, and iterated with me in real-time. That tight loop is the difference between a 15-minute debugging session and an afternoon of frustration.
+Most AI tools give you answers. You ask a question, you get a response, you figure out what to do with it. The flow is: *you* act, AI advises, *you* act again.
 
-**Building the scaffolding.** I didn't just get application code. I got Makefiles, deploy scripts, service configurations, and documentation. The meta-work that makes a project maintainable.
+What happened here was different. The AI didn't just advise—it did things. It wrote code and deployed it. It read logs and diagnosed problems. It created files and configured services. When I was holding wires and couldn't type, it ran the test script on my Pi and told me what happened.
 
-**Not being blocked.** Every time I hit something I didn't know—ALSA audio configuration, systemd service files, GPIO pull-up resistors—we figured it out together. I never had to stop and spend an hour researching before continuing.
+The flow was: *we* act, together, in the same loop.
 
----
-
-## The Takeaway
-
-I built a hardware product with no hardware experience. Not because the AI did it for me, but because it did it with me.
-
-There's a difference between an AI that says "you should use a pull-up resistor on the GPIO pin" and one that writes the code, deploys it, sees it's not working, and says "let's try a different pin."
-
-The first is advice. The second is partnership.
+That's not a small difference. It's the difference between having a consultant who sends you a report and a collaborator who shows up at your workbench.
 
 ---
 
-## Project Links
+There's a philosophical thread here I want to pull on.
 
-- [HelloHistory on GitHub](https://github.com/anderlpz/HelloHistory)
-- [Amplifier](https://github.com/microsoft/amplifier)
+The phone project required research, writing, audio production, Python, Linux system administration, electronics, and hardware debugging. In a normal workflow, each of those is a different tool, a different context, a different headspace. You'd task-switch constantly. You'd lose momentum explaining the same background to different systems.
+
+Having one collaborator that could help with all of it—and remember the context—changed how I thought about the project. I wasn't breaking it into "the software part" and "the hardware part" and "the content part." It was just *the project*, and we worked on whatever needed working on.
+
+That's closer to how creative work actually feels in your head. Not compartmentalized. Just... the thing you're making.
+
+---
+
+The phone lives in the house now.
+
+When guests pick it up, they hear about Mary Lund Davis—her education at the University of Washington, her struggle to be taken seriously in a male-dominated field, the story of building this exact house with materials from her family's mill. About twelve minutes if they listen to everything.
+
+Most people don't listen to everything. They pick up, hear a few chapters, hang up. Maybe they come back later. That's fine. The phone isn't demanding attention. It's just there, holding a story, waiting for someone to pick it up.
+
+There's something satisfying about that. A piece of technology that doesn't notify, doesn't require updates, doesn't ask for your email. It just does one thing, well, when you want it to.
+
+Maybe that's the real lesson. Not about AI, but about what's worth building: things with presence, things with weight, things that wait quietly until they're needed.
+
+The AI helped me build it. But the phone itself is stubbornly, beautifully analog.
+
+---
+
+*[HelloHistory](https://github.com/anderlpz/HelloHistory) is open source. Built with [Amplifier](https://github.com/microsoft/amplifier).*
