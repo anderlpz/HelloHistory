@@ -84,45 +84,41 @@ setup: ## Run first-time Pi setup (installs deps, configures audio)
 	ssh $(PI_USER)@$(PI_HOST) 'chmod +x ~/setup-pi.sh && ~/setup-pi.sh'
 
 .PHONY: setup-service
-setup-service: ## Install/update the systemd service on Pi
-	@echo "Installing systemd service..."
-	scp deploy/hellohistory.service $(PI_USER)@$(PI_HOST):/tmp/
-	ssh $(PI_USER)@$(PI_HOST) '\
-		sudo cp /tmp/hellohistory.service /etc/systemd/system/ && \
-		sudo systemctl daemon-reload && \
-		sudo systemctl enable hellohistory && \
-		echo "Service installed and enabled"'
+setup-service: deploy ## Install/update the systemd service on Pi
+	@echo "Installing phone player service..."
+	scp deploy/setup-service.sh $(PI_USER)@$(PI_HOST):~/
+	ssh $(PI_USER)@$(PI_HOST) 'chmod +x ~/setup-service.sh && ~/setup-service.sh'
 
 # ============================================================================
 # Service Management
 # ============================================================================
 
 .PHONY: start
-start: ## Start the HelloHistory service on Pi
-	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl start hellohistory'
+start: ## Start the phone player service on Pi
+	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl start phone-player'
 	@echo "Service started"
 
 .PHONY: stop
-stop: ## Stop the HelloHistory service on Pi
-	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl stop hellohistory'
+stop: ## Stop the phone player service on Pi
+	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl stop phone-player'
 	@echo "Service stopped"
 
 .PHONY: restart
-restart: ## Restart the HelloHistory service on Pi
-	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl restart hellohistory'
+restart: ## Restart the phone player service on Pi
+	ssh $(PI_USER)@$(PI_HOST) 'sudo systemctl restart phone-player'
 	@echo "Service restarted"
 
 .PHONY: status
 status: ## Check service status on Pi
-	@ssh $(PI_USER)@$(PI_HOST) 'systemctl status hellohistory' || true
+	@ssh $(PI_USER)@$(PI_HOST) 'systemctl status phone-player' || true
 
 .PHONY: logs
 logs: ## Tail the service logs from Pi (Ctrl+C to stop)
-	ssh $(PI_USER)@$(PI_HOST) 'journalctl -u hellohistory -f'
+	ssh $(PI_USER)@$(PI_HOST) 'journalctl -u phone-player -f'
 
 .PHONY: logs-recent
 logs-recent: ## Show last 50 log lines
-	ssh $(PI_USER)@$(PI_HOST) 'journalctl -u hellohistory -n 50'
+	ssh $(PI_USER)@$(PI_HOST) 'journalctl -u phone-player -n 50'
 
 # ============================================================================
 # Pi Remote Access
