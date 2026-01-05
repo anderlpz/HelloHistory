@@ -18,7 +18,7 @@ I had the concept. I did not have the skills to execute it.
 
 ## Starting point
 
-I'd never worked with a Raspberry Pi. I didn't know what GPIO meant. The last time I touched electronics was a high school project that didn't work. I had no idea how the inside of a rotary phone was wired.
+I'd never worked with a Raspberry Pi. I didn't know what GPIO meant. I had no idea how the inside of a rotary phone was wired.
 
 I started by describing what I wanted to Amplifier: a phone that plays audio when you pick it up and stops when you hang up. What would that require?
 
@@ -26,11 +26,11 @@ The answer was concrete: a Raspberry Pi for the brain, GPIO pins to detect the h
 
 ## Content
 
-Mary Lund Davis isn't famous. There's no Wikipedia article. The best source is a 200-page academic thesis from the University of Washington.
+Mary Lund Davis is well known and regarded for her contributions to Pacific Northwest modernism. Being part of this history—helping tell her story in the house she designed—was a privilege.
+
+The primary source for the narration was [*Mary Lund Davis: A Portrait in Three Histories*](https://digital.lib.washington.edu/researchworks/items/75e69ac3-bc19-41fa-9c6e-ae27d7ab16d6), a thesis by Nevis Granum, Mary's grandson. It's a remarkable document—part architectural history, part family memoir—that captures not just her work on this house but her life, philosophy, and legacy. We're grateful he wrote it.
 
 I gave the thesis to Amplifier and asked it to extract what mattered: her education, her career, the story of building this specific house, her later work. It organized everything into a knowledge base, then wrote the narration scripts—seven chapters, about twelve minutes total. We iterated on tone until it sounded right.
-
-I went from "there's a thesis somewhere" to recording-ready scripts without manually reading 200 pages.
 
 ## First contact with hardware
 
