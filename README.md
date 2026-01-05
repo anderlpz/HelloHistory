@@ -1,12 +1,16 @@
 # HelloHistory
 
-An AI-powered vintage rotary phone that lets guests "talk to" Mary Lund Davis, the pioneering architect who designed the Del Monte house in 1954.
+A vintage rotary phone transformed into an interactive storytelling experience. When guests pick up the handset, they hear the story of Mary Lund Davis—the pioneering architect who designed the Del Monte house in 1954.
 
-## The Vision
+## How It Works
 
-When guests at the Del Monte short-term rental pick up the vintage rotary phone, they can have a conversation with Mary Lund Davis herself - asking about her life, the house she designed, Pacific Northwest modernism, and more.
+1. **Pick up the handset** → Audio starts playing
+2. **Listen** → 8 chapters tell Mary's story (~12 minutes)
+3. **Hang up** → Audio stops, ready for the next guest
 
-This project honors Mary's legacy by bringing her voice back to her "finest building."
+No buttons, no screens, no instructions needed. Just pick up the phone.
+
+---
 
 ## About Mary Lund Davis
 
@@ -16,44 +20,123 @@ This project honors Mary's legacy by bringing her voice back to her "finest buil
 - Designed over 200 affordable "Fantastic Homes" in the 1960s
 - Featured in Architectural Record's "Record Houses of 1964"
 
+---
+
+## Technical Overview
+
+```
+┌─────────────────────────────────────────┐
+│            ROTARY PHONE                 │
+│                                         │
+│  Hook Switch ──────► GPIO 17            │
+│  Earpiece ◄──────── USB Audio           │
+│                                         │
+│         Raspberry Pi Zero 2 W           │
+│         (inside phone base)             │
+└─────────────────────────────────────────┘
+```
+
+**Hardware:**
+- Raspberry Pi Zero 2 W
+- USB audio adapter
+- Original phone hook switch and earpiece speaker
+- Lever nut wire connections (no soldering)
+
+**Software:**
+- Python 3 with gpiod for GPIO
+- mpg123 for audio playback
+- systemd for auto-start on boot
+
+---
+
+## Audio Content
+
+| Track | Chapter | Duration |
+|-------|---------|----------|
+| 0 | Intro | 0:24 |
+| 1 | Welcome to Del Monte | 1:41 |
+| 2 | Mary's Early Life | 1:15 |
+| 3 | Building the House | 1:44 |
+| 4 | The Design Philosophy | 1:49 |
+| 5 | Beyond Del Monte | 1:39 |
+| 6 | Closing | 0:31 |
+| 7 | Bonus Song | 2:32 |
+
+**Total runtime:** ~12 minutes
+
+---
+
 ## Project Structure
 
 ```
 HelloHistory/
-├── .amplifier/           # Amplifier project configuration
+├── src/
+│   ├── phone_player.py      # Production player (runs on Pi)
+│   ├── bench_player.py      # Development player (runs on Mac)
+│   └── audio/               # MP3 chapter files
+├── deploy/
+│   ├── deploy.sh            # Push code to Pi
+│   ├── setup-pi.sh          # First-time Pi setup
+│   └── setup-service.sh     # Install auto-start service
 ├── docs/
-│   ├── PROJECT_PLAN.md   # Overall project plan
-│   ├── HARDWARE_SPEC.md  # Hardware components & wiring
-│   └── SOFTWARE_SPEC.md  # Software architecture
+│   ├── CASE_STUDY.md        # How this was built with Amplifier
+│   ├── PROJECT_PLAN.md      # Original project specification
+│   └── ...                  # Additional documentation
 ├── knowledge/
-│   ├── mary_biography.md # Mary's life story
-│   ├── del_monte_facts.md# House-specific details
-│   └── system_prompt.md  # AI character prompt
-├── src/                  # Source code (coming soon)
-└── hardware/             # Wiring diagrams (coming soon)
+│   ├── mary_biography.md    # Mary's life story
+│   └── del_monte_facts.md   # House-specific details
+├── scripts/
+│   ├── generate_audio.py    # ElevenLabs automation
+│   └── chapter_*.md         # Narration scripts
+├── hardware/
+│   └── SHOPPING_LIST.md     # Bill of materials
+└── Makefile                 # Development commands
 ```
 
-## Technology Stack
+---
 
-- **Hardware:** Raspberry Pi 5 (8GB) inside rotary phone shell
-- **STT:** Vosk (offline speech recognition)
-- **LLM:** Ollama + gemma2:2b (local inference)
-- **TTS:** Piper (offline voice synthesis)
-- **Trigger:** GPIO hook switch detection
+## Development Commands
+
+```bash
+make test           # Run bench player locally (Mac)
+make deploy         # Push code to Pi
+make setup-service  # Install auto-start service
+make status         # Check if service is running
+make logs           # View live logs
+make restart        # Restart the service
+make ssh            # SSH into Pi
+```
+
+---
 
 ## Development Status
 
 - [x] Project planning & specifications
 - [x] Mary's knowledge base extracted from thesis
-- [ ] Voice pipeline prototype
-- [ ] Raspberry Pi setup
-- [ ] Phone hardware integration
-- [ ] Field deployment
+- [x] Narration scripts written
+- [x] Audio generated with ElevenLabs
+- [x] Raspberry Pi setup & deployment tooling
+- [x] Hook switch GPIO integration
+- [x] Audio routed through original earpiece
+- [x] Auto-start service on boot
+- [x] Field deployment ready
 
-## Developed With
+### Future Enhancements
 
-This project is developed with [Amplifier](https://github.com/microsoft/amplifier), an AI-powered modular development assistant.
+- [ ] Rotary dial input (select chapters by dialing)
+- [ ] Microphone for voice interaction
+- [ ] LLM-powered conversation mode
+
+---
+
+## Built With
+
+This project was built with [Amplifier](https://github.com/microsoft/amplifier), demonstrating AI-assisted hardware-software development from idea to finished product.
+
+See [docs/CASE_STUDY.md](docs/CASE_STUDY.md) for the full story.
+
+---
 
 ## License
 
-TBD
+MIT
