@@ -163,7 +163,7 @@ speaker-test -t sine -f 440 -c 1 -l 1
 From your Mac (in a new terminal):
 
 ```bash
-cd /Users/alexlopez/Sites/DelMonte/HelloHistory
+cd ~/HelloHistory  # or your local clone path
 
 # Copy all audio files to the Pi
 scp src/audio/*.mp3 pi@delmonte.local:~/delmonte/audio/

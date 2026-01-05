@@ -11,8 +11,6 @@ HelloHistory is a hardware-software project being developed with Amplifier.
 
 ## Development Environment
 
-- **Directory:** `/Users/alexlopez/Sites/DelMonte/HelloHistory`
-- **GitHub Account:** `anderlpz`
 - **Amplifier Profile:** `dev` (recommended for full development capabilities)
 
 ## Project Structure
@@ -56,4 +54,3 @@ Follow the core philosophies:
 - Main branch: `main`
 - Feature branches: `feature/<feature-name>`
 - Always commit with descriptive messages
-- Push to GitHub using `anderlpz` credentials via `gh` CLI
