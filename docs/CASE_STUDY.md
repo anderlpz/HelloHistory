@@ -1,10 +1,8 @@
 # HelloHistory
 
-The phone is a 1960s ITT rotary. When you pick up the handset, you hear the story of Mary Lund Davis—the architect who designed this house in 1954. When you hang up, it stops.
+I had a vision for something I didn't know how to build. Two weeks later, I'd built it—and learned things along the way I'll carry into whatever comes next.
 
-I had a vision for this. I didn't have the skills to build it. Amplifier changed that.
-
-This is a case study of that process.
+The project: a 1960s rotary phone at the Del Monte house, a mid-century modern rental in Washington State. It's a little easter egg for curious guests. Pick up the handset and you hear the story of Mary Lund Davis, the architect who designed the house in 1954. Hang up and it stops. No instructions, no prompts—just a small surprise for people who notice.
 
 ---
 
