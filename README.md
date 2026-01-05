@@ -16,7 +16,7 @@ No buttons, no screens, no instructions needed. Just pick up the phone.
 
 ## About Mary Lund Davis
 
-<img src="docs/images/hh-delmonte.jpg" alt="Del Monte House" width="100%">
+<img src="docs/images/midcentury-house-exterior-watercolor.jpg" alt="Del Monte House" width="100%">
 
 - First licensed female architect in Washington State after WWII
 - Designed the Del Monte house in 1954 as her first home and office
@@ -28,7 +28,7 @@ No buttons, no screens, no instructions needed. Just pick up the phone.
 
 ## Technical Overview
 
-<img src="docs/images/hh-phone-1.jpg" alt="HelloHistory rotary phone" width="100%">
+<img src="docs/images/rotary-phone-disassembled-workbench.jpg" alt="HelloHistory rotary phone disassembled" width="100%">
 
 **Hardware:**
 - Raspberry Pi Zero 2 W

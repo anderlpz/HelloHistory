@@ -4,9 +4,13 @@ I had a vision for something I didn't know how to build. Two weeks later, I'd bu
 
 The project: a 1960s rotary phone at the Del Monte house, a mid-century modern rental in Washington State. It's a little easter egg for curious guests. Pick up the handset and you hear the story of Mary Lund Davis, the architect who designed the house in 1954. Hang up and it stops. No instructions, no prompts—just a small surprise for people who notice.
 
+<img src="images/rotary-phone-assembled-shelf.jpg" alt="The finished rotary phone on a shelf" width="100%">
+
 ---
 
 ## The Vision
+
+<img src="images/midcentury-house-exterior-watercolor.jpg" alt="Del Monte house watercolor illustration" width="100%">
 
 The house was designed by Mary Lund Davis, the first licensed female architect in Washington State after WWII. Guests often ask about its history. I wanted a way to tell her story that matched the character of the space—something that felt intentional, not bolted on.
 
@@ -32,13 +36,23 @@ The thesis was a beautiful read. The challenge was condensing it into something 
 
 ## Building It
 
+<img src="images/raspberry-pi-components-unboxed.jpg" alt="Raspberry Pi and components unboxed" width="100%">
+
 **Hardware setup.** I described what I wanted to Amplifier: a phone that plays audio when lifted and stops when hung up. It gave me a concrete plan—Raspberry Pi, GPIO for the hook switch, USB audio adapter. A shopping list with links. Why Pi over Arduino. I didn't research any of this. I described the destination and got a map.
 
 **First boot.** Amplifier walked me through flashing the OS, configuring WiFi and SSH during imaging so the device would be headless from the start. First connection attempt failed. We debugged together—wrong network, hostname not resolving—until it worked. Then it set up a development workflow before I even asked: `make deploy`, `make logs`, `make restart`. A bench version for testing on my Mac. The infrastructure I didn't know I needed.
 
-**The wiring.** I opened the phone and found seven unlabeled wires on the hook switch. Gray, yellow, orange, two whites, a brown. No documentation. Amplifier explained how hook switches work, wrote a GPIO test script, and deployed it to my Pi—not sent me code to copy, but actually SSH'd in and ran it. I stood there holding wires while it iterated. We tested combinations until we found it—yellow triggered on handset lift. That's the difference: I was physically debugging hardware while the AI deployed code in real-time. With ChatGPT, I'd be copying code, pasting into a terminal, running it, copying output back. Minutes per iteration instead of seconds.
+**The wiring.** I opened the phone and found seven unlabeled wires on the hook switch. Gray, yellow, orange, two whites, a brown. No documentation.
+
+<img src="images/rotary-phone-disassembled-workbench.jpg" alt="Rotary phone disassembled on workbench with Raspberry Pi" width="100%">
+
+Amplifier explained how hook switches work, wrote a GPIO test script, and deployed it to my Pi—not sent me code to copy, but actually SSH'd in and ran it. I stood there holding wires while it iterated. We tested combinations until we found it—yellow triggered on handset lift. That's the difference: I was physically debugging hardware while the AI deployed code in real-time. With ChatGPT, I'd be copying code, pasting into a terminal, running it, copying output back. Minutes per iteration instead of seconds.
+
+<img src="images/rotary-phone-internal-mechanics.jpg" alt="Internal mechanics of the rotary phone - bells and wiring" width="100%">
 
 **The speaker.** I'd planned to use an external speaker, but the phone had its original earpiece. Amplifier explained the considerations—impedance, power—and said it was worth trying. I wired it with lever nuts. It worked. The sound is a little vintage, a little imperfect. Exactly right.
+
+<img src="images/rotary-phone-handset-internal.jpg" alt="Inside the handset - speaker and microphone" width="100%">
 
 **The bugs.** Audio disappeared after reboots. Linux kept choosing the wrong sound card. Dependencies were missing. Each issue was found and fixed in minutes—Amplifier would SSH in, check `journalctl`, spot the problem, edit the config, restart the service, and confirm the fix. Not tell me what commands to run. Actually run them.
 
@@ -49,6 +63,8 @@ The thesis was a beautiful read. The challenge was condensing it into something 
 I had a vision I couldn't execute on my own. Amplifier made it possible—and I want to be specific about why.
 
 **It executed, not just advised.** This is the core difference. ChatGPT can tell you how to configure a systemd service. Amplifier SSH'd into my Pi and configured it. When I was holding wires, it deployed test scripts in real-time. When audio broke, it checked logs and fixed configs while I watched. Cursor and Copilot are great for code completion, but they can't reach into a device on your network and debug it with you.
+
+<img src="images/mobile-terminal-ssh-ios.png" alt="Debugging remotely from an iPhone via SSH" width="50%">
 
 **It worked across domains.** Research, writing, audio, Python, Linux, hardware debugging—all in one continuous context. I wasn't switching between ChatGPT for research, Cursor for code, and a terminal for deployment. The AI knew the whole project, from Mary's biography to the GPIO pin numbers.
 
@@ -66,7 +82,7 @@ Built in two weeks by someone who'd never configured a Raspberry Pi.
 
 ## The Property
 
-The phone lives at the Del Monte house, a mid-century modern rental in Fircrest, Washington. [midcenturypnw](https://linktr.ee/midcenturypnw)
+The phone lives at the Del Monte house, a mid-century modern rental in Washington State. [midcenturypnw](https://linktr.ee/midcenturypnw)
 
 ## About Amplifier
 
