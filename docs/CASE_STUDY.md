@@ -14,6 +14,8 @@ The house was designed in 1954 by Mary Lund Davis, the first licensed female arc
 
 A touchscreen kiosk wasn't it. Neither was a QR code. But a rotary phone—pick it up and listen—felt right. The gesture is self-explanatory. No instructions needed.
 
+As a designer, I also wanted to express something of myself in the work: modifying an old piece of technology with something at the edge of innovation, crafting an artifact that gives guests a small moment of magic. The phone felt like the right vessel for that.
+
 I had the concept. I did not have the skills to execute it.
 
 ## Starting point
@@ -28,7 +30,7 @@ The answer was concrete: a Raspberry Pi for the brain, GPIO pins to detect the h
 
 Mary Lund Davis is well known and regarded for her contributions to Pacific Northwest modernism. Being part of this history—helping tell her story in the house she designed—was a privilege.
 
-The primary source for the narration was [*Mary Lund Davis: A Portrait in Three Histories*](https://digital.lib.washington.edu/researchworks/items/75e69ac3-bc19-41fa-9c6e-ae27d7ab16d6), a thesis by Nevis Granum, Mary's grandson. It's a remarkable document—part architectural history, part family memoir—that captures not just her work on this house but her life, philosophy, and legacy. We're grateful he wrote it.
+The primary source for the narration was [*Mary Lund Davis: A Portrait in Three Histories*](https://digital.lib.washington.edu/researchworks/items/75e69ac3-bc19-41fa-9c6e-ae27d7ab16d6), a thesis by Nevis Granum, Mary's grandson. It's a remarkable document—part architectural history, part family memoir—that enables us to really understand her thinking and expression. That's core to what makes history human. We're grateful he wrote it.
 
 I gave the thesis to Amplifier and asked it to extract what mattered: her education, her career, the story of building this specific house, her later work. It organized everything into a knowledge base, then wrote the narration scripts—seven chapters, about twelve minutes total. We iterated on tone until it sounded right.
 
