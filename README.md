@@ -123,14 +123,24 @@ make ssh            # SSH into Pi
 
 ---
 
+## The Property
+
+The phone lives at the Del Monte house, a mid-century modern rental in Fircrest, Washington. [midcenturypnw](https://linktr.ee/midcenturypnw)
+
+---
+
 ## Built With
 
-This project was built with [Amplifier](https://github.com/microsoft/amplifier), demonstrating AI-assisted hardware-software development from idea to finished product.
+[Amplifier](https://github.com/microsoft/amplifier) — an open-source AI agent framework from the Research Team at Microsoft. Unlike chat-based AI tools, it can take actions: write files, run commands, deploy code, debug in real-time.
 
-See [docs/CASE_STUDY.md](docs/CASE_STUDY.md) for the full story.
+See [docs/CASE_STUDY.md](docs/CASE_STUDY.md) for the full story of how this was built.
 
 ---
 
 ## License
 
 MIT
+
+---
+
+*Disclosure: I'm a member of the Amplifier team at Microsoft.*
