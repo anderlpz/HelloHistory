@@ -30,9 +30,9 @@ The answer was concrete: a Raspberry Pi for the brain, GPIO pins to detect the h
 
 Mary Lund Davis is well known and regarded for her contributions to Pacific Northwest modernism. Being part of this history—helping tell her story in the house she designed—was a privilege.
 
-The primary source for the narration was [*Mary Lund Davis: A Portrait in Three Histories*](https://digital.lib.washington.edu/researchworks/items/75e69ac3-bc19-41fa-9c6e-ae27d7ab16d6), a thesis by Nevis Granum, Mary's grandson. It's a remarkable document—part architectural history, part family memoir—that enables us to really understand her thinking and expression. That's core to what makes history human. We're grateful he wrote it.
+The primary source was [*Mary Lund Davis: A Portrait in Three Histories*](https://digital.lib.washington.edu/researchworks/items/75e69ac3-bc19-41fa-9c6e-ae27d7ab16d6), a thesis by Nevis Granum, Mary's grandson. We were fortunate to find it. It's a remarkable document—part architectural history, part family memoir—that enables us to really understand her thinking and expression. That's core to what makes history human. We also drew from other sources: articles, archives, records of her later work.
 
-I gave the thesis to Amplifier and asked it to extract what mattered: her education, her career, the story of building this specific house, her later work. It organized everything into a knowledge base, then wrote the narration scripts—seven chapters, about twelve minutes total. We iterated on tone until it sounded right.
+The thesis was a beautiful read on its own. The challenge was condensing all of this into something suited for the experience—a few minutes of narration through a phone handset. With Amplifier, I worked through the material: what mattered most, what would resonate, how to structure it. We built a knowledge base, then shaped the narration scripts—seven chapters, about twelve minutes total. We iterated on tone until it felt right.
 
 ## First contact with hardware
 
