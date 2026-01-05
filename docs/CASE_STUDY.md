@@ -56,7 +56,7 @@ I had a vision I couldn't execute on my own. Amplifier made it possible—and I 
 
 **It built the scaffolding.** Deploy scripts, Makefiles, service configurations. Not because I asked for them—because it understood they were necessary. The infrastructure that makes a project maintainable.
 
-I could have eventually figured this out with other tools. It would have taken months instead of weeks, and I probably would have given up somewhere around the hook switch wiring. Amplifier compressed that gap between vision and execution.
+Amplifier took my vision and helped me see it through. I learned along the way—about GPIO, about Linux services, about how old phones are wired. And this isn't one and done. I'll keep iterating on it, and I have the confidence now to take on things I wouldn't have tried before. That's what good technology should do. That's what useful AI is meant to unlock.
 
 ## The Result
 
