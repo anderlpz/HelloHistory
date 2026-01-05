@@ -28,10 +28,7 @@ No buttons, no screens, no instructions needed. Just pick up the phone.
 
 ## Technical Overview
 
-<p>
-<img src="docs/images/hh-phone-1.jpg" alt="Phone exterior" width="380">
-<img src="docs/images/hh-phone-2.jpg" alt="Phone interior" width="380">
-</p>
+<img src="docs/images/hh-phone-1.jpg" alt="HelloHistory rotary phone" width="500">
 
 **Hardware:**
 - Raspberry Pi Zero 2 W
