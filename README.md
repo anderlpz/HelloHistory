@@ -2,6 +2,8 @@
 
 A vintage rotary phone transformed into an interactive storytelling experience. When guests pick up the handset, they hear the story of Mary Lund Davis—the pioneering architect who designed the Del Monte house in 1954.
 
+https://github.com/anderlpz/HelloHistory/raw/main/docs/images/hh-demo.mov
+
 ## How It Works
 
 1. **Pick up the handset** → Audio starts playing
@@ -14,6 +16,8 @@ No buttons, no screens, no instructions needed. Just pick up the phone.
 
 ## About Mary Lund Davis
 
+<img src="docs/images/hh-delmonte.jpg" alt="Del Monte House" width="600">
+
 - First licensed female architect in Washington State after WWII
 - Designed the Del Monte house in 1954 as her first home and office
 - Founded Monitor Cabinets with her husband George
@@ -24,17 +28,10 @@ No buttons, no screens, no instructions needed. Just pick up the phone.
 
 ## Technical Overview
 
-```
-┌─────────────────────────────────────────┐
-│            ROTARY PHONE                 │
-│                                         │
-│  Hook Switch ──────► GPIO 17            │
-│  Earpiece ◄──────── USB Audio           │
-│                                         │
-│         Raspberry Pi Zero 2 W           │
-│         (inside phone base)             │
-└─────────────────────────────────────────┘
-```
+<p>
+<img src="docs/images/hh-phone-1.jpg" alt="Phone exterior" width="380">
+<img src="docs/images/hh-phone-2.jpg" alt="Phone interior" width="380">
+</p>
 
 **Hardware:**
 - Raspberry Pi Zero 2 W
