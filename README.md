@@ -2,7 +2,7 @@
 
 A vintage rotary phone transformed into an interactive storytelling experience. When guests pick up the handset, they hear the story of Mary Lund Davis—the pioneering architect who designed the Del Monte house in 1954.
 
-https://github.com/anderlpz/HelloHistory/raw/main/docs/images/hh-demo.mov
+https://github.com/user-attachments/assets/7927c2d3-9882-4693-a5b6-1c07320ca314
 
 ## How It Works
 
