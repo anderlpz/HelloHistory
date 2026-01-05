@@ -125,7 +125,7 @@ make ssh            # SSH into Pi
 
 ## The Property
 
-The phone lives at the Del Monte house, a mid-century modern rental in Fircrest, Washington. [midcenturypnw](https://linktr.ee/midcenturypnw)
+The phone lives at the Del Monte house, a mid-century modern rental in Washington state. [midcenturypnw](https://linktr.ee/midcenturypnw)
 
 ---
 
