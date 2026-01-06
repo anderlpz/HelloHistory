@@ -121,6 +121,29 @@ logs-recent: ## Show last 50 log lines
 	ssh $(PI_USER)@$(PI_HOST) 'journalctl -u phone-player -n 50'
 
 # ============================================================================
+# WiFi Configuration
+# ============================================================================
+
+.PHONY: wifi-add
+wifi-add: ## Add a WiFi network: make wifi-add SSID="NetworkName" PASS="password" PRIORITY=10
+	@if [ -z "$(SSID)" ] || [ -z "$(PASS)" ]; then \
+		echo "Usage: make wifi-add SSID=\"NetworkName\" PASS=\"password\" [PRIORITY=10]"; \
+		echo ""; \
+		echo "Example:"; \
+		echo "  make wifi-add SSID=\"HomeWifi\" PASS=\"mypassword\" PRIORITY=10"; \
+		echo "  make wifi-add SSID=\"RentalWifi\" PASS=\"otherpass\" PRIORITY=20"; \
+		echo ""; \
+		echo "Higher priority = preferred when multiple networks in range"; \
+	else \
+		scp deploy/setup-wifi.sh $(PI_USER)@$(PI_HOST):~/; \
+		ssh $(PI_USER)@$(PI_HOST) "chmod +x ~/setup-wifi.sh && ~/setup-wifi.sh '$(SSID)' '$(PASS)' $(or $(PRIORITY),10)"; \
+	fi
+
+.PHONY: wifi-list
+wifi-list: ## List saved WiFi networks on Pi
+	@ssh $(PI_USER)@$(PI_HOST) 'nmcli connection show | grep wifi'
+
+# ============================================================================
 # Pi Remote Access
 # ============================================================================
 
