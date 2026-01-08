@@ -4,7 +4,7 @@ I had a vision for something I didn't know how to build. Two weeks later, I'd bu
 
 The project: a 1960s rotary phone at the Del Monte house, a mid-century modern rental in Washington State. It's a little easter egg for curious guests. Pick up the handset and you hear the story of Mary Lund Davis, the architect who designed the house in 1954. Hang up and it stops. No instructions, no prompts—just a small surprise for people who notice.
 
-<img src="images/rotary-phone-assembled-shelf.jpg" alt="The finished rotary phone on a shelf" width="100%">
+[<img src="images/rotary-phone-assembled-shelf.jpg" alt="The finished rotary phone on a shelf" width="100%">](https://github.com/user-attachments/assets/7927c2d3-9882-4693-a5b6-1c07320ca314)
 
 ---
 
