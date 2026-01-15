@@ -1,0 +1,901 @@
+/**
+ * HelloHistory Design System
+ * "Pick Up the Past"
+ * 
+ * A vintage rotary phone transformed into a storytelling device.
+ */
+
+/* ==========================================================================
+   Google Fonts - Mid-Century Modern: Jost + Lora
+   The Bell Telephone aesthetic: optimistic geometric + warm storytelling
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+:root {
+  /* -------------------------------------------------------------------------
+     Colors - Bakelite Amber + Mid-Century Teal
+     ------------------------------------------------------------------------- */
+  
+  /* Primary - Bakelite Amber */
+  --color-primary-50:  #FDF6EE;
+  --color-primary-100: #FAECD9;
+  --color-primary-200: #F4D4AD;
+  --color-primary-300: #ECB87A;
+  --color-primary-400: #E39545;
+  --color-primary-500: #D97925;
+  --color-primary-600: #C45F1A;
+  --color-primary-700: #A24718;
+  --color-primary-800: #83391B;
+  --color-primary-900: #6B3019;
+  --color-primary-950: #3A160A;
+
+  /* Secondary - Mid-Century Teal */
+  --color-secondary-50:  #EFFAF7;
+  --color-secondary-100: #D7F3ED;
+  --color-secondary-200: #B3E6DC;
+  --color-secondary-300: #80D2C5;
+  --color-secondary-400: #4FB8A9;
+  --color-secondary-500: #359A8C;
+  --color-secondary-600: #297B71;
+  --color-secondary-700: #25635C;
+  --color-secondary-800: #224F4A;
+  --color-secondary-900: #1F433F;
+  --color-secondary-950: #0D2725;
+
+  /* Neutrals - Warm Sepia */
+  --color-neutral-0:   #FFFFFE;
+  --color-neutral-50:  #FAF8F5;
+  --color-neutral-100: #F3EFE9;
+  --color-neutral-200: #E8E2D9;
+  --color-neutral-300: #D4CBC0;
+  --color-neutral-400: #B8AC9E;
+  --color-neutral-500: #9A8D7E;
+  --color-neutral-600: #7D7065;
+  --color-neutral-700: #5E544A;
+  --color-neutral-800: #433C35;
+  --color-neutral-900: #2A2521;
+  --color-neutral-950: #181512;
+
+  /* Semantic Aliases */
+  --color-bg-page:       var(--color-neutral-950);
+  --color-bg-surface:    var(--color-neutral-900);
+  --color-text-primary:  var(--color-neutral-50);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-muted:    var(--color-neutral-500);
+  --color-accent:        var(--color-primary-500);
+  --color-accent-hover:  var(--color-primary-400);
+
+  /* -------------------------------------------------------------------------
+     Typography - Jost + Lora (Mid-Century Bell Telephone)
+     ------------------------------------------------------------------------- */
+  --font-display: 'Jost', system-ui, sans-serif;
+  --font-body: 'Lora', Georgia, serif;
+  
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
+  --text-6xl: 5rem;
+  
+  /* Fluid Scale */
+  --fluid-hero: clamp(3rem, 12vw, 6rem);
+  --fluid-h1: clamp(2.5rem, 8vw, 4rem);
+  --fluid-h2: clamp(1.5rem, 5vw, 2.5rem);
+  --fluid-body: clamp(1rem, 2.5vw, 1.25rem);
+  
+  /* Letter Spacing */
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+  --tracking-mega: 0.3em;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* -------------------------------------------------------------------------
+     Spacing
+     ------------------------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-48: 12rem;
+  
+  /* Section Spacing */
+  --section-padding: clamp(4rem, 15vh, 8rem);
+  
+  /* -------------------------------------------------------------------------
+     Animation
+     ------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+  --duration-slower: 1200ms;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  overflow-x: hidden;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ==========================================================================
+   Typography - Mid-Century Modern
+   ========================================================================== */
+
+/* Main title - NOT uppercase, elegant mixed case */
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--fluid-hero);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-none);
+}
+
+/* Section headers - uppercase for structure */
+h2, .display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+  font-size: var(--fluid-h2);
+  margin-bottom: var(--space-6);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-snug);
+}
+
+p {
+  font-size: var(--fluid-body);
+  line-height: var(--leading-relaxed);
+  max-width: 55ch;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mega);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-size: var(--fluid-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mega);
+  color: var(--color-text-secondary);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 50ch;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.container--narrow {
+  max-width: 900px;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+section.auto-height {
+  min-height: auto;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__video-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 21, 18, 0.3) 0%,
+    rgba(24, 21, 18, 0.6) 50%,
+    rgba(24, 21, 18, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-8);
+}
+
+.hero__title {
+  font-size: var(--fluid-hero);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-4);
+  color: var(--color-neutral-50);
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--color-primary-400);
+}
+
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-primary-300);
+  margin-bottom: var(--space-8);
+}
+
+.hero__description {
+  font-size: var(--fluid-body);
+  color: var(--color-text-secondary);
+  max-width: 45ch;
+  margin: 0 auto var(--space-12);
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.hero__scroll-hint svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-text-muted);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ==========================================================================
+   Content Sections
+   ========================================================================== */
+.section-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.section-content h2 {
+  color: var(--color-text-primary);
+}
+
+.section-content p {
+  color: var(--color-text-secondary);
+  margin: 0 auto var(--space-6);
+}
+
+/* ==========================================================================
+   Feature Grid
+   ========================================================================== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+/* ==========================================================================
+   Feature Cards - Mid-Century Modern Style
+   
+   Period-appropriate details:
+   - Top accent bar (common in MCM furniture and architecture)
+   - Subtle asymmetry via the accent placement
+   - Warm, slightly transparent backgrounds
+   - Refined corners (not too rounded, not too sharp)
+   - Gentle shadow suggesting depth without heavy effects
+   ========================================================================== */
+.feature-card {
+  text-align: left;
+  padding: var(--space-8);
+  padding-top: calc(var(--space-8) + 4px); /* Account for accent bar */
+  background: linear-gradient(
+    180deg,
+    rgba(42, 37, 33, 0.8) 0%,
+    rgba(42, 37, 33, 0.6) 100%
+  );
+  border-radius: 4px;
+  position: relative;
+  /* Subtle inset border - feels crafted */
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* Top accent bar - signature MCM detail */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--space-6);
+  right: var(--space-6);
+  height: 3px;
+  background: var(--color-primary-500);
+  border-radius: 0 0 2px 2px;
+  opacity: 0.7;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Alternate accent colors for visual rhythm */
+.feature-card:nth-child(2)::before,
+.feature-card:nth-child(4)::before {
+  background: var(--color-secondary-500);
+}
+
+.feature-card__icon {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+  /* Subtle filter to blend emojis with the palette */
+  filter: saturate(0.85);
+}
+
+.feature-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.feature-card p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* ==========================================================================
+   Media Section (Full-width image/video)
+   ========================================================================== */
+.media-section {
+  position: relative;
+  padding: 0;
+  min-height: 70vh;
+}
+
+.media-section__image,
+.media-section__video {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.media-section__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-12) var(--space-6);
+  background: linear-gradient(
+    to top,
+    rgba(24, 21, 18, 0.95) 0%,
+    transparent 100%
+  );
+}
+
+.media-section__caption h2 {
+  margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   Case Study Section
+   ========================================================================== */
+.case-study {
+  background: var(--color-bg-surface);
+}
+
+.case-study__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .case-study__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-study__image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.case-study__image img {
+  width: 100%;
+  height: auto;
+}
+
+.case-study__content {
+  padding: var(--space-8) 0;
+}
+
+/* Quote styling moved to Mid-Century Polish Details section */
+
+/* ==========================================================================
+   Audio Player
+   ========================================================================== */
+.audio-player {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+.audio-player__title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.audio-player audio {
+  width: 100%;
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+.cta-section {
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-neutral-950) 0%,
+    var(--color-primary-950) 100%
+  );
+}
+
+/* ==========================================================================
+   Buttons - Mid-Century Modern Style
+   
+   Period-appropriate details:
+   - Pill shape (fully rounded) was iconic of the era
+   - Subtle dimensionality via box-shadow, not heavy gradients
+   - Sentence case feels more refined than all-caps
+   - Generous horizontal padding creates elegant proportions
+   - Restrained hover states (subtle lift + glow, not dramatic transforms)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: none; /* Sentence case - more refined than uppercase */
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-4) var(--space-8);
+  border-radius: 100px; /* Pill shape - quintessential MCM */
+  transition: all var(--duration-normal) var(--ease-out);
+  cursor: pointer;
+  border: none;
+  position: relative;
+}
+
+.btn--primary {
+  background: var(--color-primary-500);
+  color: var(--color-neutral-0);
+  /* Subtle dimensionality - feels tactile like Bakelite */
+  box-shadow: 
+    0 2px 0 var(--color-primary-700),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-400);
+  color: var(--color-neutral-0);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 3px 0 var(--color-primary-600),
+    0 6px 16px rgba(217, 121, 37, 0.25);
+}
+
+.btn--primary:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 1px 0 var(--color-primary-700),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  /* Refined hairline border */
+  box-shadow: inset 0 0 0 1.5px var(--color-neutral-600);
+}
+
+.btn--outline:hover {
+  color: var(--color-primary-400);
+  box-shadow: inset 0 0 0 1.5px var(--color-primary-500);
+  background: rgba(217, 121, 37, 0.08);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  padding: var(--space-16) 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: auto;
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.footer__links a {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+}
+
+.footer__links a:hover {
+  color: var(--color-text-primary);
+}
+
+.footer__credit {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.footer__credit a {
+  color: var(--color-secondary-400);
+}
+
+/* ==========================================================================
+   Mid-Century Polish Details
+   
+   Subtle decorative elements that evoke the era without kitsch:
+   - Geometric dividers inspired by atomic-age graphics
+   - Refined rule styles
+   - Subtle texture hints
+   ========================================================================== */
+
+/* Decorative divider - subtle starburst/asterisk motif */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+  color: var(--color-neutral-600);
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-neutral-700) 100%
+  );
+}
+
+.section-divider::after {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-700) 0%,
+    transparent 100%
+  );
+}
+
+/* Diamond accent - period-appropriate geometric detail */
+.diamond-accent {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary-500);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+/* Refined blockquote styling - MCM editorial feel */
+.case-study__quote {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  /* Geometric accent bar instead of simple border */
+  border-left: none;
+  padding-left: var(--space-8);
+  margin: var(--space-8) 0;
+  position: relative;
+}
+
+.case-study__quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-500) 40%,
+    transparent 40%,
+    transparent 50%,
+    var(--color-secondary-500) 50%,
+    var(--color-secondary-500) 100%
+  );
+  border-radius: 2px;
+}
+
+/* Audio player refinements - more tactile, period feel */
+.audio-player {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+  /* Subtle inset effect - like a control panel */
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Eyebrow refinement - add subtle accent dot */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary-500);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Hero refinements */
+.hero__tagline {
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtle horizontal rules flanking tagline */
+.hero__tagline::before,
+.hero__tagline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: var(--color-primary-400);
+  opacity: 0.4;
+}
+
+.hero__tagline::before {
+  right: calc(100% + var(--space-4));
+}
+
+.hero__tagline::after {
+  left: calc(100% + var(--space-4));
+}
+
+/* Footer logo refinement - geometric accent */
+.footer__logo {
+  position: relative;
+  display: inline-block;
+}
+
+.footer__logo::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary-500);
+  margin: var(--space-3) auto 0;
+  opacity: 0.5;
+}
+
+/* Section headers - subtle underline accent */
+.section-content h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--color-primary-500);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out);
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 640px) {
+  :root {
+    --section-padding: clamp(3rem, 10vh, 5rem);
+  }
+  
+  .hero__title {
+    font-size: clamp(2rem, 15vw, 3.5rem);
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
