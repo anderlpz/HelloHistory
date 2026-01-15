@@ -451,10 +451,31 @@ section.auto-height {
 }
 
 .feature-card__icon {
-  font-size: var(--text-3xl);
+  width: 48px;
+  height: 48px;
   margin-bottom: var(--space-4);
-  /* Subtle filter to blend emojis with the palette */
-  filter: saturate(0.85);
+  color: var(--color-primary-400);
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+.feature-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card:hover .feature-card__icon {
+  color: var(--color-primary-300);
+}
+
+/* Alternate icon colors to match accent bars */
+.feature-card:nth-child(2) .feature-card__icon,
+.feature-card:nth-child(4) .feature-card__icon {
+  color: var(--color-secondary-400);
+}
+
+.feature-card:nth-child(2):hover .feature-card__icon,
+.feature-card:nth-child(4):hover .feature-card__icon {
+  color: var(--color-secondary-300);
 }
 
 .feature-card h3 {
@@ -505,6 +526,29 @@ section.auto-height {
 /* ==========================================================================
    Case Study Section
    ========================================================================== */
+
+/* Fix the transition from media section to case study */
+.media-section--case-study {
+  margin-bottom: 0;
+}
+
+.media-section--case-study .media-section__caption {
+  /* Extend the gradient further up for smoother blend */
+  padding-bottom: var(--space-16);
+  background: linear-gradient(
+    to top,
+    var(--color-bg-surface) 0%,
+    rgba(42, 37, 33, 0.95) 30%,
+    transparent 100%
+  );
+}
+
+.case-study--connected {
+  /* Remove top padding to connect seamlessly with media section above */
+  padding-top: 0;
+  margin-top: -1px; /* Prevent any gap */
+}
+
 .case-study {
   background: var(--color-bg-surface);
 }
@@ -539,13 +583,22 @@ section.auto-height {
 /* Quote styling moved to Mid-Century Polish Details section */
 
 /* ==========================================================================
-   Audio Player
+   Audio Player - Mid-Century Control Panel Style
    ========================================================================== */
 .audio-player {
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(
+    180deg,
+    rgba(42, 37, 33, 0.9) 0%,
+    rgba(24, 21, 18, 0.95) 100%
+  );
   border-radius: 8px;
   padding: var(--space-6);
   margin: var(--space-8) 0;
+  /* Inset panel effect */
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .audio-player__title {
@@ -554,12 +607,42 @@ section.auto-height {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-3);
+  color: var(--color-primary-400);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.audio-player__title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary-500);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-primary-500);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 .audio-player audio {
   width: 100%;
+  height: 40px;
+  border-radius: 4px;
+}
+
+/* Style the audio element for webkit browsers */
+.audio-player audio::-webkit-media-controls-panel {
+  background: rgba(42, 37, 33, 0.8);
+}
+
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+  color: var(--color-text-secondary);
 }
 
 /* ==========================================================================
@@ -572,6 +655,14 @@ section.auto-height {
     var(--color-neutral-950) 0%,
     var(--color-primary-950) 100%
   );
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
 }
 
 /* ==========================================================================
@@ -897,5 +988,69 @@ section.auto-height {
   
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Hide tagline decorative lines on small screens */
+  .hero__tagline::before,
+  .hero__tagline::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+/* Focus states for keyboard navigation */
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 3px;
+}
+
+.btn--outline:focus-visible {
+  outline-color: var(--color-secondary-400);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-secondary-400);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Improved contrast for muted text - bumped from 500 to 400 */
+.feature-card p,
+.lead,
+.footer__credit {
+  color: var(--color-neutral-400);
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .hero__scroll-hint {
+    animation: none;
+  }
+  
+  .audio-player__title::before {
+    animation: none;
+    opacity: 1;
   }
 }
