@@ -31,6 +31,7 @@ sudo apt install -y \
     python3-pygame \
     python3-rpi.gpio \
     alsa-utils \
+    mpg123 \
     git
 echo "✓ Dependencies installed"
 
