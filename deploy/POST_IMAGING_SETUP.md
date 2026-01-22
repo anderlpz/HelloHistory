@@ -22,11 +22,11 @@ General Settings:
     → Password: [your Pi password]
 
 Configure Wireless LAN:
-  ✓ SSID: lpzfam
-  ✓ Password: flcslb!986$*
+  ✓ SSID: [your primary WiFi network]
+  ✓ Password: [your WiFi password]
   ✓ Wireless LAN country: US
   
-  NOTE: We'll add the second network (VGBND Guest) after setup
+  NOTE: We'll add the second network after setup
 
 Services:
   ✓ Enable SSH
@@ -127,15 +127,15 @@ This will:
 
 ---
 
-## Step 7: Add Second WiFi Network (VGBND Guest)
+## Step 7: Add Second WiFi Network (Optional)
 
-For when you take the Pi to Del Monte house:
+For when you take the Pi to another location:
 
 ```bash
-make wifi-add SSID="VGBND Guest" PASS="137VgbnDavis" PRIORITY=20
+make wifi-add SSID="SecondNetwork" PASS="password" PRIORITY=20
 ```
 
-Priority 20 = higher than lpzfam (10), so it will prefer VGBND Guest when both are available.
+Priority 20 = higher than primary network (10), so it will prefer this network when both are available.
 
 ---
 
@@ -168,8 +168,8 @@ make deploy
 # 3. Install service
 make setup-service
 
-# 4. Add Del Monte WiFi
-make wifi-add SSID="VGBND Guest" PASS="137VgbnDavis" PRIORITY=20
+# 4. Add second WiFi (optional)
+make wifi-add SSID="SecondNetwork" PASS="password" PRIORITY=20
 
 # 5. Verify
 make status
