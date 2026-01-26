@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelloHistory — Vintage Design Test</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Nunito+Sans:ital,wght@0,400;0,600;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       Design Tokens - HelloHistory Vintage System
+       ========================================================================== */
+    :root {
+      /* Cream Paper - Primary Background */
+      --color-cream: #EFEED6;
+      --color-cream-dark: #E5E3C8;
+      
+      /* Vintage Gold - Warmth & Accents */
+      --color-gold: #FEEEBA;
+      --color-gold-dark: #D4A84A;
+      
+      /* Period Red - CTAs & Emphasis */
+      --color-red: #E4432E;
+      --color-red-dark: #C4321E;
+      
+      /* Vintage Blue - Trust & Links */
+      --color-blue: #334FB4;
+      --color-blue-dark: #233F94;
+      
+      /* Warm Black - Text */
+      --color-black: #2A2521;
+      --color-charcoal: #404041;
+      
+      /* Kraft Brown - Textures */
+      --color-kraft: #8B7355;
+      --color-kraft-dark: #6B5340;
+      
+      /* Bakelite */
+      --bakelite-black: #1A1815;
+      --bakelite-ivory: #F5F0E1;
+      
+      /* Brass */
+      --brass-light: #D4A84A;
+      --brass-dark: #8B6914;
+      
+      /* Typography */
+      --font-primary: 'Poppins', system-ui, sans-serif;
+      --font-secondary: 'Nunito Sans', Georgia, serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    /* ==========================================================================
+       Base Styles
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-black);
+      background-color: var(--color-cream);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ==========================================================================
+       Kraft Paper Texture (CSS Pattern - No Image Needed)
+       ========================================================================== */
+    .texture-kraft {
+      background-color: var(--color-kraft);
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+        linear-gradient(180deg, rgba(139,115,85,0.95) 0%, rgba(107,83,64,0.98) 100%);
+      background-blend-mode: soft-light, normal;
+    }
+
+    .texture-paper {
+      background-color: var(--color-cream);
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================================
+       Typography
+       ========================================================================== */
+    .headline-emotional {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.25em;
+    }
+
+    .headline-bold {
+      font-family: var(--font-primary);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      color: var(--color-black);
+    }
+
+    .headline-bold--large {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    .headline-bold--medium {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .body-text {
+      font-family: var(--font-secondary);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.8;
+      max-width: 65ch;
+    }
+
+    .eyebrow {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-red);
+      margin-bottom: 0.5em;
+    }
+
+    /* ==========================================================================
+       Layout
+       ========================================================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* ==========================================================================
+       Decorative Dividers
+       ========================================================================== */
+    
+    /* Telephone Cord Curl */
+    .divider-cord {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      height: 30px;
+      margin: 2rem auto;
+      color: var(--color-charcoal);
+    }
+
+    .divider-cord path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    /* Rotary Dial Dots */
+    .divider-dial {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 2rem 0;
+    }
+
+    .divider-dial__dot {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--color-charcoal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-primary);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+    }
+
+    /* Patch Cord */
+    .divider-patch {
+      display: flex;
+      align-items: center;
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+
+    .divider-patch__plug {
+      width: 16px;
+      height: 16px;
+      background: var(--color-charcoal);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .divider-patch__line {
+      flex: 1;
+      height: 3px;
+      background: var(--color-charcoal);
+    }
+
+    /* Simple Line with Ornament */
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+
+    .divider-ornament__line {
+      width: 80px;
+      height: 1px;
+      background: var(--color-charcoal);
+    }
+
+    .divider-ornament__symbol {
+      font-size: 1.5rem;
+      color: var(--color-gold-dark);
+    }
+
+    /* ==========================================================================
+       Buttons
+       ========================================================================== */
+    .btn-vintage {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      border-radius: 4px;
+      border: 2px solid currentColor;
+      padding: 0.75em 2em;
+      font-family: var(--font-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: transparent;
+      color: var(--color-black);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-vintage:hover {
+      background: var(--color-black);
+      color: var(--color-cream);
+    }
+
+    .btn-vintage--primary {
+      background: var(--color-red);
+      border-color: var(--color-red);
+      color: white;
+    }
+
+    .btn-vintage--primary:hover {
+      background: var(--color-red-dark);
+      border-color: var(--color-red-dark);
+    }
+
+    .btn-vintage--gold {
+      background: var(--color-gold);
+      border-color: var(--color-gold-dark);
+      color: var(--color-black);
+    }
+
+    .btn-vintage--gold:hover {
+      background: var(--color-gold-dark);
+      color: white;
+    }
+
+    /* ==========================================================================
+       Badges & Stamps
+       ========================================================================== */
+    .badge-vintage {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+      color: var(--color-red);
+    }
+
+    .badge-stamp {
+      display: inline-block;
+      border: 3px double var(--color-red);
+      padding: 0.5em 1.25em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-red);
+      transform: rotate(-3deg);
+    }
+
+    .badge-year {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25em 0.75em;
+      border: 1px solid var(--color-charcoal);
+      font-family: var(--font-primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--color-charcoal);
+    }
+
+    /* ==========================================================================
+       Cards
+       ========================================================================== */
+    .card-vintage {
+      background: var(--color-cream);
+      border: 1px solid var(--color-charcoal);
+      padding: 2rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-vintage:hover {
+      transform: translateY(-0.5rem) rotate(0.5deg);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.12);
+    }
+
+    .card-vintage__title {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5em;
+    }
+
+    /* ==========================================================================
+       Art Deco Frame
+       ========================================================================== */
+    .frame-deco {
+      border: 2px solid var(--color-charcoal);
+      padding: 2.5rem;
+      position: relative;
+      background: var(--color-cream);
+    }
+
+    .frame-deco::before,
+    .frame-deco::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--color-gold-dark);
+    }
+
+    .frame-deco::before {
+      top: -6px;
+      left: -6px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .frame-deco::after {
+      bottom: -6px;
+      right: -6px;
+      border-left: none;
+      border-top: none;
+    }
+
+    /* ==========================================================================
+       Header / Hero
+       ========================================================================== */
+    .hero-vintage {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .hero-vintage__badge {
+      margin-bottom: 2rem;
+    }
+
+    .hero-vintage__content {
+      max-width: 800px;
+    }
+
+    .hero-vintage__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--color-charcoal);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-vintage__buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* ==========================================================================
+       Sections
+       ========================================================================== */
+    .section-story {
+      background: var(--color-cream-dark);
+    }
+
+    .section-kraft {
+      color: var(--bakelite-ivory);
+      padding: 4rem 0;
+    }
+
+    .section-kraft .headline-emotional {
+      color: var(--color-gold);
+    }
+
+    .section-kraft .headline-bold {
+      color: var(--bakelite-ivory);
+    }
+
+    .section-kraft .body-text {
+      color: rgba(245, 240, 225, 0.9);
+    }
+
+    /* ==========================================================================
+       Feature Grid
+       ========================================================================== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* ==========================================================================
+       Quote Block
+       ========================================================================== */
+    .quote-vintage {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: var(--color-charcoal);
+      padding: 2rem;
+      border-left: 4px solid var(--color-gold-dark);
+      margin: 2rem 0;
+    }
+
+    .quote-vintage cite {
+      display: block;
+      font-family: var(--font-primary);
+      font-style: normal;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+      color: var(--color-black);
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .footer-vintage {
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--bakelite-ivory);
+    }
+
+    .footer-vintage__logo {
+      font-family: var(--font-primary);
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-vintage__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--color-gold);
+      margin-bottom: 2rem;
+    }
+
+    .footer-vintage__heritage {
+      font-family: var(--font-primary);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      opacity: 0.7;
+      margin-top: 2rem;
+    }
+
+    /* ==========================================================================
+       Utilities
+       ========================================================================== */
+    .text-center { text-align: center; }
+    .mt-1 { margin-top: 1rem; }
+    .mt-2 { margin-top: 2rem; }
+    .mt-3 { margin-top: 3rem; }
+    .mb-1 { margin-bottom: 1rem; }
+    .mb-2 { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="hero-vintage texture-paper">
+    <div class="hero-vintage__badge">
+      <span class="badge-stamp">Est. 1947</span>
+    </div>
+    
+    <div class="hero-vintage__content">
+      <p class="headline-emotional">For Superior</p>
+      <h1 class="headline-bold headline-bold--large">Audio Experiences</h1>
+      <p class="hero-vintage__tagline">"Voices Across Time"</p>
+      
+      <p class="body-text" style="margin: 0 auto;">
+        Every Listening Station is built from authentically restored vintage hardware, 
+        enhanced with contemporary components that finally realize the Audio Enrichment 
+        System's original promise.
+      </p>
+      
+      <div class="hero-vintage__buttons">
+        <a href="#" class="btn-vintage btn-vintage--primary">View Project</a>
+        <a href="#" class="btn-vintage">Documentation</a>
+      </div>
+    </div>
+    
+    <!-- Cord Divider -->
+    <svg class="divider-cord" viewBox="0 0 300 30" style="margin-top: 4rem;">
+      <path d="M0,15 Q15,5 30,15 T60,15 T90,15 T120,15 T150,15 T180,15 T210,15 T240,15 T270,15 T300,15"/>
+    </svg>
+  </section>
+
+  <!-- ========================================================================
+       THE STORY SECTION
+       ======================================================================== -->
+  <section class="section-story">
+    <div class="container">
+      <div class="text-center mb-2">
+        <span class="eyebrow">The Story</span>
+        <h2 class="headline-bold headline-bold--medium">The Future the Telephone Forgot</h2>
+      </div>
+      
+      <div style="max-width: 700px; margin: 0 auto;">
+        <p class="body-text mt-2">
+          In 1947, Harold "Hal" Pemberton envisioned a telephone that could do more than 
+          connect voices. His Audio Enrichment System would bring news, stories, and 
+          entertainment through the phone already in your living room.
+        </p>
+        
+        <p class="body-text mt-1">
+          AT&T rejected the idea. So Pemberton quit and founded the 
+          <strong>Beacon Audio Works</strong> in a converted textile mill in Beacon Falls, Connecticut.
+        </p>
+        
+        <blockquote class="quote-vintage">
+          "Why just talk when you can listen? The telephone is already in 40 million 
+          American homes. Let's give it a voice."
+          <cite>— Harold Pemberton, 1947</cite>
+        </blockquote>
+        
+        <p class="body-text">
+          For fifteen years, they produced beautiful handcrafted "Listening Stations." 
+          Then, in 1962, facing pressure from Bell System's legal department, 
+          the Beacon Audio Works closed its doors.
+        </p>
+        
+        <p class="body-text mt-1">
+          Sixty-two years later, the archive was rediscovered. HelloHistory is the 
+          realization of Pemberton's original vision—finally answered.
+        </p>
+      </div>
+      
+      <!-- Dial Divider -->
+      <div class="divider-dial">
+        <span class="divider-dial__dot">1</span>
+        <span class="divider-dial__dot">2</span>
+        <span class="divider-dial__dot">3</span>
+        <span class="divider-dial__dot">4</span>
+        <span class="divider-dial__dot">5</span>
+        <span class="divider-dial__dot">6</span>
+        <span class="divider-dial__dot">7</span>
+        <span class="divider-dial__dot">8</span>
+        <span class="divider-dial__dot">9</span>
+        <span class="divider-dial__dot">0</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FEATURES SECTION (Cards)
+       ======================================================================== -->
+  <section class="texture-paper">
+    <div class="container">
+      <div class="text-center mb-2">
+        <span class="eyebrow">Possibilities</span>
+        <h2 class="headline-bold headline-bold--medium">Give Any Space a Voice</h2>
+      </div>
+      
+      <div class="feature-grid">
+        <div class="card-vintage">
+          <h3 class="card-vintage__title">Historic Homes</h3>
+          <p class="body-text">
+            Let vacation rentals and historic properties share the stories of those who lived there.
+          </p>
+        </div>
+        
+        <div class="card-vintage">
+          <h3 class="card-vintage__title">Museums & Exhibits</h3>
+          <p class="body-text">
+            Create intimate, personal moments in public spaces. One visitor, one story.
+          </p>
+        </div>
+        
+        <div class="card-vintage">
+          <h3 class="card-vintage__title">Family Heirlooms</h3>
+          <p class="body-text">
+            Transform grandma's phone into a living memory. Her voice, preserved forever.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Patch Cord Divider -->
+      <div class="divider-patch mt-3">
+        <span class="divider-patch__plug"></span>
+        <span class="divider-patch__line"></span>
+        <span class="divider-patch__plug"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ART DECO FRAME EXAMPLE
+       ======================================================================== -->
+  <section>
+    <div class="container">
+      <div class="text-center mb-2">
+        <span class="eyebrow">Design Elements</span>
+        <h2 class="headline-bold headline-bold--medium">Art Deco Frame</h2>
+      </div>
+      
+      <div class="frame-deco" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <span class="badge-year">1947 — 1962</span>
+        <h3 class="headline-bold mt-1" style="font-size: 1.5rem;">Beacon Audio Works</h3>
+        <p class="headline-emotional">Beacon Falls, Connecticut</p>
+        <p class="body-text mt-1" style="margin: 1rem auto 0;">
+          "Every call tells a story."
+        </p>
+      </div>
+      
+      <!-- Ornament Divider -->
+      <div class="divider-ornament">
+        <span class="divider-ornament__line"></span>
+        <span class="divider-ornament__symbol">&#9742;</span>
+        <span class="divider-ornament__line"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       BUTTONS & BADGES SHOWCASE
+       ======================================================================== -->
+  <section class="section-story">
+    <div class="container">
+      <div class="text-center mb-2">
+        <span class="eyebrow">UI Elements</span>
+        <h2 class="headline-bold headline-bold--medium">Buttons & Badges</h2>
+      </div>
+      
+      <div class="text-center">
+        <h3 class="headline-bold mb-1" style="font-size: 1rem;">Buttons</h3>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#" class="btn-vintage btn-vintage--primary">Primary Action</a>
+          <a href="#" class="btn-vintage">Secondary</a>
+          <a href="#" class="btn-vintage btn-vintage--gold">Gold Accent</a>
+        </div>
+        
+        <h3 class="headline-bold mb-1 mt-3" style="font-size: 1rem;">Badges</h3>
+        <div style="display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <span class="badge-stamp">Est. 1947</span>
+          <span class="badge-vintage">Restored<br>From<br>Archive</span>
+          <span class="badge-year">Beacon Falls, CT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       KRAFT TEXTURE FOOTER
+       ======================================================================== -->
+  <footer class="footer-vintage texture-kraft">
+    <div class="container">
+      <p class="footer-vintage__logo">HelloHistory</p>
+      <p class="footer-vintage__tagline">"Voices Across Time"</p>
+      
+      <svg class="divider-cord" viewBox="0 0 300 30" style="color: rgba(245,240,225,0.5); margin: 2rem auto;">
+        <path d="M0,15 Q15,5 30,15 T60,15 T90,15 T120,15 T150,15 T180,15 T210,15 T240,15 T270,15 T300,15"/>
+      </svg>
+      
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#" class="btn-vintage" style="color: var(--bakelite-ivory); border-color: var(--bakelite-ivory);">GitHub</a>
+        <a href="#" class="btn-vintage" style="color: var(--bakelite-ivory); border-color: var(--bakelite-ivory);">Documentation</a>
+      </div>
+      
+      <p class="footer-vintage__heritage">
+        Beacon Audio Works — Beacon Falls, Connecticut — Est. 1947
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
