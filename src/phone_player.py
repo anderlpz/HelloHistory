@@ -100,7 +100,7 @@ class PhonePlayer:
 
                 if lifted and not was_lifted:
                     log.info("Handset LIFTED")
-                    time.sleep(1.5)  # Give them time to bring phone to ear
+                    time.sleep(0.75)  # Give them time to bring phone to ear
                     self.play_track(0)
                 elif not lifted and was_lifted:
                     log.info("Handset HUNG UP")
